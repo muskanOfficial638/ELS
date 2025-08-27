@@ -1,0 +1,75 @@
+"use client";
+// import React, { useEffect, useState } from "react";
+// import { Author } from "../../assets";
+import Image from "next/image";
+// import { apiPath } from "@/app/utils/api-path";
+
+// const Founder: React.FC = ({ data }: any) => {
+const Founder: React.FC = () => {
+  // const [textHtml, setTextHtml] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
+
+  // useEffect(() => {
+  //   const rawHtml = data?.page_content || "";
+
+  //   // Parse the HTML string to a DOM structure
+  //   const parser = new DOMParser();
+  //   const doc = parser.parseFromString(rawHtml, "text/html");
+
+  //   // Extract image URL from <img> tag
+  //   const imgElement = doc.querySelector("img");
+  //   const imgSrc = imgElement?.getAttribute("src") || "";
+
+  //   // Remove the column containing the image
+  //   imgElement?.closest(".filament-tiptap-grid-builder__column")?.remove();
+
+  //   // Remaining HTML is the text section
+  //   const textContent = doc.body.innerHTML;
+  //   // Update state
+  //   setImageUrl(imgSrc);
+  //   setTextHtml(textContent);
+  // }, [data]);
+
+  return (
+    <section className="md:pt-16 px-4">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
+        <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2 md:order-1 lg:order-1">
+          <p className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] tracking-[0.8px] sm:tracking-[1.20px] lg:tracking-[1.20px] leading-[36px] sm:leading-[48px]">
+            About
+          </p>
+          <p className="font-sans relative self-stretch font-normal text-black text-base sm:text-xl tracking-[0.8px] sm:tracking-[1.00px] leading-6 sm:leading-[30px]">
+            <span className="font-semibold">Syeda Nazifa Nawroj,</span> Esq. is
+            an experienced corporate lawyer based in Silicon Valley, dedicated
+            to empowering business owners, founders, and investors. Over nearly
+            a decade, she has guided small to mid-sized private companies
+            through every stage of their lifecycle, from formation to strategic
+            market exit. Syeda specializes in corporate governance and complex
+            transactions, including entity formation, equity financings,
+            commercial deals, and Mergers & Acquisitions (M&A). She brings a
+            unique perspective, having closed over 35 M&A deals with a total
+            transaction value nearing $3 billion prior to founding ELS.
+          </p>
+        </div>
+        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 p-4 shadow-xl text-center">
+          <Image
+            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-cover"
+            alt="Frame"
+            src={"/attorney-1.jpg"}
+            // src={Author}
+            // src={`${apiPath}${imageUrl}`}
+            width={1000}
+            height={500}
+          />
+          <h2 className="font-body font-bold text-2xl mt-2">
+            Syeda Nazifa Nawroj, Esq.
+          </h2>
+          <p className="font-sans text-[#000] text-[16px] sm:text-[16px] lg:text-[18px] tracking-[0.75px] sm:tracking-[1.00px] lg:tracking-[1.20px] leading-8 sm:leading-9 lg:leading-[48px]">
+            Founder & Principal Attorney
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Founder;

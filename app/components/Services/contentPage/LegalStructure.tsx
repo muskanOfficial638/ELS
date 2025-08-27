@@ -1,0 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+export default function LegalStructure({ section }: any) {
+//   console.log("section3", section);
+  return (
+    <section className="pb-16 px-4 bg-white">
+      <div className="max-w-6xl mx-auto  items-center text-center md:items-start md:text-start">
+        {/* Text Content */}
+        <div>
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0D2D63] mb-4 font-body">
+            {section?.section_heading}
+          </h2>
+          <div
+            className="text-black mt-2 font-sans leading-5"
+            dangerouslySetInnerHTML={{ __html: section?.description }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
