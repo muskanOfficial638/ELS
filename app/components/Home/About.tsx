@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 // import { BlueLogo } from "../../assets";
 import Image from "next/image";

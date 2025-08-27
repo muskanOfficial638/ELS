@@ -1,5 +1,6 @@
 // import React, { useEffect, useState } from "react";
 // import { HeroImage2 } from "../../assets";
+"use client";
 import { logCustomEvent } from "../../utils/firebase";
 import Image from "next/image";
 

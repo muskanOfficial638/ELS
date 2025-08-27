@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Libre_Baskerville, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -24,33 +23,6 @@ const openSans  = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title:
-    "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
-  description:
-    " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
-  icons: {
-    icon: "/ELS_logo.png",
-  },
-  openGraph: {
-    title:
-      "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
-    description:
-      " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
-    url: "https://www.sellyourstartup.com/",
-    images: [
-      {
-        url: "/ELS_logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Empowering Legal Solutions",
-      },
-    ],
-    siteName: "Empowering Legal Solutions",
-    type: "website",
-  },
-};
 
 export default function RootLayout({
   children,

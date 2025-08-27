@@ -1,3 +1,4 @@
+"use client";
 // import React, { useEffect, useState } from "react";
 // import { MenuImage } from "../../assets";
 import { logCustomEvent } from "../../utils/firebase";

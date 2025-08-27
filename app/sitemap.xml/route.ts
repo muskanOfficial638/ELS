@@ -2,7 +2,7 @@ import { type NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic"; // optional if using dynamic content
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://phpstack-1499764-5738117.cloudwaysapps.com";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: NextRequest) {
