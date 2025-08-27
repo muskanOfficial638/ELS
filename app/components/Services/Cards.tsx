@@ -101,7 +101,7 @@ const Cards: React.FC = async () => {
           let parsedSections = [];
           try {
             parsedSections = JSON.parse(card.sections);
-            // console.log("parsed sections",parsedSections)
+            // console.log("parsed sections",parsedSections[0])
           } catch (error) {
             console.error("Failed to parse card.sections", error);
           }
@@ -114,20 +114,20 @@ const Cards: React.FC = async () => {
               <h3 className="text-white text-lg font-semibold mb-3 cursor-pointer hover:underline">
                 <Link href={`services/${card?.slug}`}>{card?.title}</Link>
               </h3>
-              {Array.isArray(parsedSections) &&
+              {/* {Array.isArray(parsedSections) &&
                 parsedSections.map((data, index: number) => {
-                  return (
+                  return ( */}
                     <div
-                      key={index}
-                      className="text-white text-sm leading-relaxed"
+                      // key={index}
+                      className="text-white text-sm leading-relaxed font-sans"
                     >
                       <div
-                        className="line-clamp-1"
-                        dangerouslySetInnerHTML={{ __html: data?.description }}
+                        className="line-clamp-5"
+                        dangerouslySetInnerHTML={{ __html: parsedSections[0]?.description }}
                       />
                     </div>
-                  );
-                })}
+                  {/* );
+                })} */}
               <Link href={`services/${card?.slug}`} className="mt-4 text-white text-sm text-[12px]">
                 {"Read more >>"}
               </Link>

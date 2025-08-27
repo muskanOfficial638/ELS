@@ -11,7 +11,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  /* --font-sans: var(--font-geist-sans); */
+   --font-sans: var(--font-open-sans);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -36,6 +37,11 @@ body {
 
 .libre {
   font-family: var(--font-libre);
+}
+
+p:empty {
+    display: block;
+    height: 20px;
 }
 
 /* .slick-prev:before,
