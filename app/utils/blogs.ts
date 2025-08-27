@@ -57,7 +57,12 @@ export const extractSnippet = (htmlContent: string) => {
   return truncateContent(htmlContent, 3000);
 };
 
+// export const formatDate = (dateTimeString: string) => {
+//   const date = dateTimeString?.split(" ")[0];
+//   return date;
+// };
+
 export const formatDate = (dateTimeString: string) => {
-  const date = dateTimeString?.split(" ")[0];
-  return date;
+  return dateTimeString.split("T")[0];
 };
+
