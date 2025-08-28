@@ -6,38 +6,36 @@ import Vision from "../components/Attorney/Vision";
 import Mission from "../components/Attorney/Mission";
 import type { Metadata } from "next";
 import Script from "next/script";
-// import { apiPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
 
-// async function fetchAttorneyData() {
-//   const res = await fetch(`${apiPath}/api/cms-pages/attorney`, { cache: 'no-store' });
-//   if (!res.ok) throw new Error('Failed to fetch terms data');
-//   return res.json();
-// }
-
-
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const attorneyPageData = await fetchCmsPagesBySlug("attorney");
   return {
-    title: "Attorney | ELS",
-    description:
-      "Syeda Nazifa Nawroj, Esq. is an experienced corporate lawyer based in Silicon Valley. She specializes in advising founders, investors, and businesses on corporate governance and transactions, like formation, equity financings, commercial deals, and Mergers & Acquisitions (M&A).",
+    title: attorneyPageData?.meta_title,
+    // "Attorney | ELS",
+    description: attorneyPageData?.meta_description,
+    // "Syeda Nazifa Nawroj, Esq. is an experienced corporate lawyer based in Silicon Valley. She specializes in advising founders, investors, and businesses on corporate governance and transactions, like formation, equity financings, commercial deals, and Mergers & Acquisitions (M&A).",
     openGraph: {
-      title: "Attorney | ELS",
-      description:
-        "Syeda Nazifa Nawroj, Esq. is an experienced corporate lawyer based in Silicon Valley. She specializes in advising founders, investors, and businesses on corporate governance and transactions, like formation, equity financings, commercial deals, and Mergers & Acquisitions (M&A).",
-      url: "https://empowering.legal/attorney",
+      title: attorneyPageData?.meta_title,
+      description: attorneyPageData?.meta_description,
+      url: `${frontPath}${attorneyPageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${attorneyPageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: attorneyPageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/attorney",
+      canonical: `${canonicalPath}${attorneyPageData?.slug}`,
+    },
+    other: {
+      keywords: attorneyPageData?.meta_keywords,
     },
   };
 };
@@ -56,9 +54,7 @@ const Attorney: React.FC = async () => {
     },
     url: "https://empowering.legal/attorney",
     image: "https://empowering.legal/ELS.webp",
-    sameAs: [
-      "https://www.linkedin.com/in/syedanazifa", // Update if needed
-    ],
+    sameAs: ["https://www.linkedin.com/in/syedanazifa"],
     description:
       "Syeda Nazifa Nawroj, Esq. is an experienced corporate lawyer based in Silicon Valley. She specializes in advising founders, investors, and businesses on corporate governance and transactions, including formation, equity financings, commercial deals, and M&A.",
   };

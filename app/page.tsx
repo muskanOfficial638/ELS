@@ -11,33 +11,43 @@ import News from "./components/News";
 import Script from "next/script";
 import ComparisonTable from "./components/Home/comparisonTable";
 import { Metadata } from "next";
-// import { apiPath } from "./utils/api-path";
+import { fetchCmsPagesBySlug } from "./utils/api";
+import { apiPath, frontPath, canonicalPath } from "./utils/api-path";
 
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const homePageData = await fetchCmsPagesBySlug("home");
+
   return {
-    title:
-      "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel M",
-    description:
-      " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
+    title: homePageData?.meta_title,
+    // "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
+    description: homePageData?.meta_description,
+    // " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
     icons: {
-      icon: "/ELS_logo.png",
+      icon: `${apiPath}/storage/${homePageData?.content[0]?.image}`,
+      //  `${frontPath}ELS_logo.png`,
     },
     openGraph: {
-      title:
-        "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
-      description:
-        " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
-      url: "https://www.sellyourstartup.com/",
+      title: homePageData?.meta_title,
+      description: homePageData?.meta_description,
+      url: frontPath,
       images: [
         {
-          url: "https://phpstack-1499764-5738117.cloudwaysapps.com/ELS_logo.png",
+          url: `${apiPath}/storage/${homePageData?.feature_image}`,
+          // `${frontPath}ELS_logo.png`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: homePageData?.meta_title,
         },
       ],
-      siteName: "Empowering Legal Solutions",
+      siteName: homePageData?.meta_title,
       type: "website",
+    },
+    alternates: {
+      canonical: canonicalPath,
+    },
+    // ✅ Add custom meta tags like keywords here
+    other: {
+      keywords: homePageData?.meta_keywords,
     },
   };
 };

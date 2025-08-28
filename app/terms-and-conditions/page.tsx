@@ -2,52 +2,43 @@ import React from "react";
 import type { Metadata } from "next";
 import Script from "next/script";
 import TOS from "../components/TermsConditions";
-import { apiPath } from "../utils/api-path";
-
-async function fetchTermsData() {
-  const res = await fetch(`${apiPath}/api/cms-pages/terms-and-conditions`, {
-    cache: 'no-store',
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-KEY": "tbs-6zQ6v8m4J2q9p3X7",
-    },
-  });
-
-  if (!res.ok) throw new Error('Failed to fetch terms data');
-  return res.json();
-}
-
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  // const data = await fetchTermsData();
+  const termsPageData = await fetchCmsPagesBySlug("terms-and-conditions");
+
   return {
-    title: "Terms and conditions | ELS",
-    description:
-      "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S. ",
+    title: termsPageData?.meta_title,
+    // "Terms and conditions | ELS",
+    description: termsPageData?.meta_description,
+    // "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S. ",
     openGraph: {
-      title: "Terms and conditions | ELS",
-      description:
-        "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S. ",
-      url: "https://empowering.legal/terms-and-conditions",
+      title: termsPageData?.meta_title,
+      description: termsPageData?.meta_description,
+      url: `${frontPath}${termsPageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${termsPageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: termsPageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/terms-and-conditions",
+      canonical: `${canonicalPath}${termsPageData?.slug}`,
+    },
+    other: {
+      keywords: termsPageData?.meta_keywords,
     },
   };
 };
 
 const TermsPage: React.FC = async () => {
-  const data = await fetchTermsData();
+  const data = await fetchCmsPagesBySlug("terms-and-conditions");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -81,7 +72,7 @@ const TermsPage: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <TOS data={data}/>
+      <TOS data={data} />
       {/* <TOS /> */}
     </>
   );

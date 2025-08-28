@@ -3,49 +3,44 @@ import CTA from "../components/Services/CTA";
 import Cards from "../components/Services/Cards";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { apiPath } from "../utils/api-path";
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
 
-async function fetchServicesData() {
-  const res = await fetch(`${apiPath}/api/cms-pages/services`, {
-    cache: "no-store",
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-KEY": "tbs-6zQ6v8m4J2q9p3X7",
-    },
-  });
-  if (!res.ok) throw new Error("Failed to fetch terms data");
-  return res.json();
-}
-
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const servicePageData = await fetchCmsPagesBySlug("services");
+ 
   return {
-    title: "Services | ELS",
-    description:
-      "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S.",
+    title: servicePageData?.meta_title,
+    // "Services | ELS",
+    description: servicePageData?.meta_description,
+    // "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S.",
     openGraph: {
-      title: "Services | ELS",
-      description:
-        "At Empowering Legal Solutions, we provide comprehensive corporate legal services designed to support founders, business owners, investors, and stakeholders across the U.S.",
-      url: "https://empowering.legal/services",
+      title: servicePageData?.meta_title,
+      description: servicePageData?.meta_description,
+      url: `${frontPath}${servicePageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${servicePageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: servicePageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/services",
+      canonical: `${canonicalPath}${servicePageData?.slug}`,
+    },
+    // ✅ Add custom meta tags like keywords here
+    other: {
+      keywords: servicePageData?.meta_keywords,
     },
   };
 };
 
 const Services: React.FC = async () => {
-  const data = await fetchServicesData();
+  const servicePageData = await fetchCmsPagesBySlug("services");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -84,9 +79,7 @@ const Services: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <CTA data={data} />
-      {/* <CTA /> */}
-      {/* <Cards data={data} /> */}
+      <CTA data={servicePageData} />
       <Cards />
     </>
   );

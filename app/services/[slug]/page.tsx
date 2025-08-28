@@ -6,12 +6,12 @@ import LegalStructure from "@/app/components/Services/contentPage/LegalStructure
 // import FaqSection from "@/app/components/Services/contentPage/FAQSection";
 import NotarizationSection from "@/app/components/Services/contentPage/NotarizationSection";
 import ServiceHeroSection from "@/app/components/Services/contentPage/ServiceHeroSection";
-import fetchServices from "@/app/utils/api";
+import { fetchServiceBySlug } from "@/app/utils/api";
 
 const ServicePage: React.FC = async ({ params }:any) => {
   const { slug } = params;
 
-  const serviceData = await fetchServices(slug);
+  const serviceData = await fetchServiceBySlug(slug);
   // console.log("service Data", serviceData[0]);
   const parsedSections = JSON.parse(serviceData[0]?.sections);
   // console.log("parsed Sections",parsedSections)

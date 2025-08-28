@@ -2,43 +2,43 @@ import React from "react";
 import PrivacyPolicyComponent from "../components/PrivacyPolicyComponent";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { apiPath } from "../utils/api-path";
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
 
-async function fetchPrivacyData() {
-  const res = await fetch(`${apiPath}/api/cms-pages/privacy-policy`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch terms data');
-  return res.json();
-}
+export const generateMetadata = async (): Promise<Metadata> => {
+  const privacyPageData = await fetchCmsPagesBySlug("privacy-policy");
 
-export const generateMetadata = (): Metadata => {
   return {
-    title: "Privacy policy | ELS",
-    description:
-      "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website sellyourstartup.com (“Website”). By using this Website in any way, or by accepting the Terms and Conditions, you agree to comply with this Privacy Policy. If you do not agree with the terms of this policy, please do not access the Website.",
+    title: privacyPageData?.meta_title,
+    // "Privacy policy | ELS",
+    description: privacyPageData?.meta_description,
+    // "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website sellyourstartup.com (“Website”). By using this Website in any way, or by accepting the Terms and Conditions, you agree to comply with this Privacy Policy. If you do not agree with the terms of this policy, please do not access the Website.",
     openGraph: {
-      title: "Privacy policy | ELS",
-      description:
-        "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website sellyourstartup.com (“Website”). By using this Website in any way, or by accepting the Terms and Conditions, you agree to comply with this Privacy Policy. If you do not agree with the terms of this policy, please do not access the Website.",
-      url: "https://empowering.legal/privacy-policy",
+      title: privacyPageData?.meta_title,
+      description: privacyPageData?.meta_description,
+      url: `${frontPath}${privacyPageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${privacyPageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: privacyPageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/privacy-policy",
+      canonical: `${canonicalPath}${privacyPageData?.slug}`,
+    },
+    other: {
+      keywords: privacyPageData?.meta_keywords,
     },
   };
 };
 
 const PrivacyPolicy: React.FC = async () => {
-   const data = await fetchPrivacyData();
+  const data = await fetchCmsPagesBySlug("privacy-policy");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -61,7 +61,7 @@ const PrivacyPolicy: React.FC = async () => {
       license: "https://empowering.legal/terms-and-conditions",
     },
   };
-  
+
   return (
     <>
       <Script
@@ -72,7 +72,7 @@ const PrivacyPolicy: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <PrivacyPolicyComponent data={data}/>
+      <PrivacyPolicyComponent data={data} />
     </>
   );
 };

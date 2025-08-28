@@ -4,43 +4,43 @@ import Legal from "../components/Deals/Legal";
 // import Fenwick from "../components/Deals/Fenwick";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { apiPath } from "../utils/api-path";
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
 
-async function fetchDealsData() {
-  const res = await fetch(`${apiPath}/api/cms-pages/deals`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch terms data');
-  return res.json();
-}
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dealsPageData = await fetchCmsPagesBySlug("deals");
 
-export const generateMetadata = (): Metadata => {
   return {
-    title: "Deals | ELS",
-    description:
-      "DNR Business Solutions, a private retail software start-up in California, in its substantially all asset sale to SurgePays, a fintech public company.",
+    title: dealsPageData?.meta_title,
+    // "Deals | ELS",
+    description: dealsPageData?.meta_description,
+    // "DNR Business Solutions, a private retail software start-up in California, in its substantially all asset sale to SurgePays, a fintech public company.",
     openGraph: {
-      title: "Deals | ELS",
-      description:
-        "DNR Business Solutions, a private retail software start-up in California, in its substantially all asset sale to SurgePays, a fintech public company.",
-      url: "https://empowering.legal/deals",
+      title: dealsPageData?.meta_title,
+      description: dealsPageData?.meta_description,
+      url: `${frontPath}${dealsPageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${dealsPageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: dealsPageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/deals",
+      canonical: `${canonicalPath}${dealsPageData?.slug}`,
+    },
+    other: {
+      keywords: dealsPageData?.meta_keywords,
     },
   };
 };
 
 const Deals: React.FC = async () => {
-  const data = await fetchDealsData();
+  const data = await fetchCmsPagesBySlug("deals");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BusinessEvent",

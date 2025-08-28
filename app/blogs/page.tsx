@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
 import BlogPost from "../components/Blogs/BlogPost";
 import Script from "next/script";
+import { apiPath, frontPath, canonicalPath } from "../utils/api-path";
+import { fetchCmsPagesBySlug } from "../utils/api";
 
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const blogsPageData = await fetchCmsPagesBySlug("blogs");
+
   return {
-    title: "Blogs | ELS",
-    description:
-      "DNR Business Solutions, a private retail software start-up in California, in its substantially all asset sale to SurgePays, a fintech public company.",
+    title: blogsPageData?.meta_title,
+    description: blogsPageData?.meta_description,
     openGraph: {
-      title: "Blogs | ELS",
-      description:
-        "DNR Business Solutions, a private retail software start-up in California, in its substantially all asset sale to SurgePays, a fintech public company.",
-      url: "https://empowering.legal/blogs",
+      title: blogsPageData?.meta_title,
+      description: blogsPageData?.meta_description,
+      url: `${frontPath}${blogsPageData?.slug}`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${apiPath}/storage/${blogsPageData?.feature_image}`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: blogsPageData?.meta_title,
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/blogs",
+      canonical: `${canonicalPath}${blogsPageData?.slug}`,
+    },
+    other: {
+      keywords: blogsPageData?.meta_keywords,
     },
   };
 };
@@ -46,6 +51,7 @@ const Blogs: React.FC = () => {
       },
     },
   };
+
   return (
     <>
       <Script
