@@ -79,28 +79,28 @@ insight.`;
       <section className="md:py-[100px] px-4 bg-[#F6F6F6]">
         <div className="flex flex-col sm:flex-row  items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
           <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2 md:order-1 lg:order-1">
-            <p className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] tracking-[0.8px] sm:tracking-[1.20px] lg:tracking-[1.20px] leading-[36px] sm:leading-[48px]">
+            <h2 className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
               Why Choose Empowering Legal Solutions?
-            </p>
-            <p className="font-body relative self-stretch font-normal text-black text-base sm:text-xl tracking-[0.8px] sm:tracking-[1.00px] leading-6 sm:leading-[30px]">
+            </h2>
+            <p className="font-body relative self-stretch font-normal text-black text-base sm:text-xl leading-6 sm:leading-[30px]">
               A law firm that is built to help you navigate and win at corporate
               transactions.
             </p>
             <p
-              className={`font-body relative self-stretch font-normal text-black text-sm sm:text-base  tracking-[0.6px] sm:tracking-[1.00px] leading-[22px] sm:leading-6 ${
+              className={`font-body relative self-stretch font-normal font-sans text-black leading-[28px] ${
                 !expanded ? "line-clamp-3" : ""
               }`}
             >
               {text}
             </p>
             <button
-              className="text-sm text-[#0B2B66] font-sans text-center md:text-left lg:text-left cursor-pointer"
+              className=" text-[#0B2B66] font-[600] font-sans text-center md:text-left lg:text-left cursor-pointer"
               onClick={() => setExpanded(!expanded)}
             >
               {expanded ? "Read less<<" : "Read more>>"}
             </button>
             <div className="lg:flex">
-              <button className="bg-[#1C4A87] text-white px-6 py-3 rounded-full font-medium font-sans cursor-pointer hover:bg-[#56B3B1]">
+              <button className="bg-[#1C4A87] text-[18px] font-[600] font-sans text-white rounded-full duration-400 px-[32px] py-[16px] cursor-pointer hover:bg-[#56B3B1]">
                 Get Legal Help Now
               </button>
             </div>

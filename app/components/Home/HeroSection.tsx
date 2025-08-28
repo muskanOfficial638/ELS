@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
           {/* {heroData[0]?.content} */}
         </p>
         <button
-          className="cursor-pointer font-sans font-semibold mt-6 px-6 sm:px-8 py-3 sm:py-4 bg-white hover:bg-[#0D2D63] hover:text-white text-[#0D2D63] rounded-full text-sm sm:text-base"
+          className="cursor-pointer font-sans text-[18px] font-[600] duration-400 mt-6 px-[32px] py-[16px] bg-white hover:bg-[#0D2D63] hover:text-white text-[#0D2D63] rounded-full text-sm sm:text-base"
           onClick={handleNavigate}
         >
           Consult Now

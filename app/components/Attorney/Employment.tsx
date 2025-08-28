@@ -18,10 +18,10 @@ const Employment: React.FC = () => {
           />
         </div>
         <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2">
-          <p className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] tracking-[0.8px] sm:tracking-[1.20px] lg:tracking-[1.20px] leading-[36px] sm:leading-[48px]">
+          <h2 className="font-body relative self-stretch font-bold text-[#0D2D63] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
             Work Experience
-          </p>
-          <p className="font-sans font-normal text-black text-sm sm:text-base tracking-[0.75px] sm:tracking-[1.00px] leading-5 sm:leading-6">
+          </h2>
+          <p className="font-sans text-black leading-[28px]">
             <span className="font-semibold">
               ● Founder & Principal Attorney
             </span>{" "}
@@ -33,7 +33,7 @@ const Employment: React.FC = () => {
             </span>
           </p>
 
-          <p className="font-sans font-normal text-black text-sm sm:text-base  tracking-[0.75px] sm:tracking-[1.00px] leading-5 sm:leading-6">
+          <p className="font-sans text-black leading-[28px]">
             <span className="font-semibold">● M&A Attorney</span> – Fenwick &
             West LLP,{" "}
             <span>
@@ -43,7 +43,7 @@ const Employment: React.FC = () => {
             </span>
           </p>
 
-          <p className="font-sans font-normal text-black text-sm sm:text-base tracking-[0.75px] sm:tracking-[1.00px] leading-5 sm:leading-6">
+          <p className="font-sans text-black leading-[28px]">
             <span className="font-semibold">● Corporate Law Attorney</span> –
             DLA Piper LLP (US),{" "}
             <span>
@@ -52,7 +52,7 @@ const Employment: React.FC = () => {
             </span>
           </p>
 
-          <p className="font-sans font-normal text-black text-sm sm:text-base tracking-[0.75px] sm:tracking-[1.00px] leading-5 sm:leading-6">
+          <p className="font-sans text-black leading-[28px]">
             <span className="font-semibold">● California Bar Profile</span> –{" "}
             <a
               target="_blank"

@@ -8,10 +8,10 @@ const Vision: React.FC = () => {
     <section className="md:pt-16 px-4">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
         <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2">
-          <p className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] tracking-[0.8px] sm:tracking-[1.20px] lg:tracking-[1.20px] leading-[36px] sm:leading-[48px]">
+          <h2 className="font-body relative self-stretch font-bold text-[#052b64] text-xl sm:text-[32px]  leading-[36px] sm:leading-[48px]">
             Sayeda&apos;s vision
-          </p>
-          <p className="font-sans relative self-stretch font-normal text-black text-base sm:text-xl tracking-[0.8px] sm:tracking-[1.00px] leading-6 sm:leading-[30px]">
+          </h2>
+          <p className="font-sans relative self-stretch text-black leading-[28px]">
             Driven by a passion for making high-impact corporate legal advice
             accessible, Syeda authored &quot;Sell Your Start-Up: A
             Founder&apos;s Guide to Navigate and Win at M&A&quot; available on{" "}

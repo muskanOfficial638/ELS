@@ -295,23 +295,23 @@ const Header = () => {
     <header className="w-full md:sticky top-0 z-100">
       {/* Top Blue Bar */}
       <div className="bg-[#0D2D63] text-white md:px-[5rem] sm:px-8 px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 z-50">
-        <div className="flex items-center gap-2">
+        <Link href={"mailto:contact@empowering.legal"} className="flex hover:text-[#45B29A] duration-400 items-center gap-2">
           <HiOutlineMail className="text-lg" />
-          <span className="text-sm">contact@empowering.legal</span>
-        </div>
+          <span className="font-sans">contact@empowering.legal</span>
+        </Link>
 
         <div className="flex gap-3">
           <a
             href="https://www.facebook.com/empoweringlegalsolutions"
             target="_blank"
-            className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A]"
+            className="bg-white rounded-full w-8 h-8 duration-400 relative group hover:bg-[#45B29A]"
           >
-            <FaFacebookF className="w-3 h-3 text-[#0B2B66] group-hover:text-white absolute inset-0 m-auto" />
+            <FaFacebookF className="w-4 h-4 text-[#0B2B66] duration-400 group-hover:text-white absolute inset-0 m-auto" />
           </a>
           <a
             href="https://bsky.app/profile/empowerlegalnow.bsky.social"
             target="_blank"
-            className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A]"
+            className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
           >
             <svg
               width="13"
@@ -319,7 +319,7 @@ const Header = () => {
               viewBox="0 0 13 11"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-3 h-3 fill-[#0D2D63] group-hover:fill-white absolute inset-0 m-auto"
+              className="w-4 h-4 fill-[#0D2D63] duration-400 group-hover:fill-white absolute inset-0 m-auto"
             >
               <path d="M3.14198 0.97953C4.51073 2.00375 5.9826 4.085 6.52167 5.20297C7.06073 4.08734 8.53261 2.00609 9.90136 0.97953C10.8881 0.238905 12.4865 -0.33297 12.4865 1.49047C12.4865 1.85375 12.2779 4.54906 12.156 4.98734C11.7295 6.50609 10.1779 6.89515 8.79745 6.65844C11.2092 7.06859 11.8232 8.42797 10.4967 9.78734C7.97948 12.3702 6.88026 9.14047 6.59901 8.31312C6.55917 8.19828 6.53807 8.13031 6.52167 8.13031C6.50526 8.13031 6.48417 8.20062 6.44432 8.31312C6.16307 9.14047 5.06151 12.3702 2.54667 9.78734C1.22245 8.42797 1.83417 7.06859 4.24589 6.65844C2.86542 6.89515 1.31385 6.50609 0.889636 4.985C0.765417 4.54672 0.556824 1.8514 0.556824 1.48812C0.556824 -0.335314 2.15526 0.236561 3.14198 0.977186V0.97953Z" />
             </svg>
@@ -327,16 +327,16 @@ const Header = () => {
           <a
             href="https://www.linkedin.com/company/empoweringlegalsolutions"
             target="_blank"
-            className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A] cursor-pointer"
+            className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A] cursor-pointer"
           >
-            <FaLinkedinIn className="w-3 h-3 text-[#0B2B66] group-hover:text-white absolute inset-0 m-auto" />
+            <FaLinkedinIn className="w-4 h-4 duration-400 text-[#0B2B66] group-hover:text-white absolute inset-0 m-auto" />
           </a>
           <a
             href="https://www.instagram.com/empowering.legal"
             target="_blank"
-            className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A]"
+            className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
           >
-            <FaInstagram className="w-3 h-3 text-[#0B2B66] group-hover:text-white absolute inset-0 m-auto" />
+            <FaInstagram className="w-4 h-4 text-[#0B2B66] duration-400 group-hover:text-white absolute inset-0 m-auto" />
           </a>
         </div>
       </div>
@@ -363,7 +363,7 @@ const Header = () => {
                 key={href}
                 href={href}
                 target={target}
-                className={`hover:text-[#56B3B1] font-semibold ${
+                className={`hover:text-[#56B3B1] duration-400 font-semibold ${
                   isActive ? "text-[#56B3B1]" : "text-black"
                 }`}
               >
@@ -376,7 +376,7 @@ const Header = () => {
         {/* CTA Button */}
         <div className="hidden lg:flex">
           <button
-            className="bg-[#1C4A87] text-white px-6 py-3 rounded-full font-medium font-sans hover:bg-[#56B3B1] font-sans cursor-pointer"
+            className="bg-[#1C4A87] text-white text-[18px] font-[600] font-sans rounded-full hover:bg-[#56B3B1] duration-400 px-[32px] py-[16px] cursor-pointer"
             onClick={handleNavigate}
           >
             Book a Call

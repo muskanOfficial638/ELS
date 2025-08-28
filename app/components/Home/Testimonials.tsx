@@ -177,7 +177,7 @@ export default function Testimonials() {
       <h2 className="text-3xl font-bold text-[#052b64] mb-10">
         What Do Our Clients Say About ELS?
       </h2>
-      <p className="text-gray-800 text-sm">
+      <p className="font-sans leading-[28px] text-black">
         Our success is measured by the success of our clients. Hear what
         businesses like yours say about
         <br /> partnering with Empowering Legal Solutions.
@@ -204,16 +204,16 @@ export default function Testimonials() {
                   }`}
                 />
               </div>
-              <h3 className="text-[#052b64] text-lg font-semibold font-body">
+              <h3 className="text-[#052b64] text-[22px] font-body">
                 {t.name}
               </h3>
-              <p className="font-bold text-sm mb-4 font-sans">{t.role}</p>
+              <p className="font-sans text-[19px] font-[600] leading-[28px] text-black mb-4">{t.role}</p>
 
               <blockquote className="relative text-gray-700 text-base leading-relaxed pt-8 pb-6 px-6">
                 <span className="absolute text-6xl left-4 top-0 text-[#052b64] leading-none font-body">
                   “
                 </span>
-                <p className="font-sans">{t.quote} </p>
+                <p className="font-sans leading-[28px] text-black">{t.quote} </p>
                 <span className="text-6xl absolute md:right-25 right-0 md:-bottom-6 text-[#052b64] font-body">
                   ”
                 </span>

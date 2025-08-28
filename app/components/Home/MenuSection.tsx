@@ -47,10 +47,10 @@ const MenuSection: React.FC = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-[100px] relative px-4 lg:px-[90px]">
         <div className="flex flex-col items-start w-full lg:w-[45%] gap-6 order-2 md:order-1 lg:order-1">
           {/* <div dangerouslySetInnerHTML={{ __html: textHtml }} /> */}
-          <p className="font-body font-bold text-2xl lg:text-[32px] tracking-wide lg:tracking-[1.20px] leading-tight lg:leading-[48px]">
+          <h2 className="font-body font-bold text[#0D2D63] text-2xl lg:text-[32px] tracking-wide lg:tracking-[1.20px] leading-tight lg:leading-[48px]">
             What’s the best on the menu?
-          </p>
-          <p className="font-body font-normal text-black text-sm lg:text-base leading-5 lg:leading-6">
+          </h2>
+          <p className="font-sans leading-[28px] text-black">
             We are a sweetheart for micro (&lt;$10MN) and small (&lt;$100MN)
             sized mergers & acquisitions (M&A) transactions. No one does it
             quite like we do. We love to fight and win at M&A for the start-up
@@ -58,7 +58,7 @@ const MenuSection: React.FC = () => {
             book on Amazon marketplace.
           </p>
           <button
-            className="mt-3 px-6 lg:px-8 py-3 lg:py-4 bg-[#1C4A87] text-white cursor-pointer hover:bg-[#56B3B1] text-white rounded-full font-sans"
+            className="mt-3 bg-[#1C4A87] text-[18px] font-[600] font-sans text-white rounded-full duration-400 px-[32px] py-[16px] cursor-pointer hover:bg-[#56B3B1]"
             onClick={handleNavigateAmazon}
           >
             Buy Book

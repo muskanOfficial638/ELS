@@ -165,7 +165,7 @@ const CorporateTransaction = () => {
       <h2 className="text-3xl sm:text-4xl font-bold text-[#0B2B66] mb-4">
         Our Core Legal Solutions
       </h2>
-      <p className="max-w-2xl mx-auto text-gray-700 text-base sm:text-lg mb-12">
+      <p className="max-w-2xl mx-auto text-black text-base sm:text-lg mb-12 font-sans leading-[28px]">
         Empowering Legal Solutions offers a comprehensive suite of services
         designed to support businesses across various legal needs. Explore our
         key practice areas below:
@@ -181,7 +181,7 @@ const CorporateTransaction = () => {
           <h3 className="font-semibold text-lg text-[#0B2B66] mb-2 group-hover:text-white">
             General Corporate
           </h3>
-          <p className="text-gray-800 text-sm group-hover:text-white">
+          <p className="text-black group-hover:text-white font-sans leading-[28px]">
             Corporate Counsel for Growing Companies
           </p>
         </div>
@@ -194,7 +194,7 @@ const CorporateTransaction = () => {
           <h3 className="font-semibold text-lg text-[#0B2B66] mb-2 group-hover:text-white">
             Mergers & Acquisitions
           </h3>
-          <p className="text-gray-800 text-sm group-hover:text-white">
+          <p className="text-black group-hover:text-white font-sans leading-[28px]">
             M&A Legal Counsel for Strategic Growth
           </p>
         </div>
@@ -207,7 +207,7 @@ const CorporateTransaction = () => {
           <h3 className="font-semibold text-lg text-[#0B2B66] mb-2 group-hover:text-white">
             Intellectual Property & Privacy
           </h3>
-          <p className="text-gray-800 text-sm group-hover:text-white">
+          <p className="text-black group-hover:text-white font-sans leading-[28px]">
             Protecting Innovation and Personal Data
           </p>
         </div>
@@ -222,7 +222,7 @@ const CorporateTransaction = () => {
           <h3 className="font-semibold text-lg text-[#0B2B66] mb-2 group-hover:text-white">
             Fundraising
           </h3>
-          <p className="text-gray-800 text-sm group-hover:text-white">
+          <p className="text-black group-hover:text-white font-sans leading-[28px]">
             Legal Guidance for Startup and Business Capital Raises
           </p>
         </div>
@@ -235,7 +235,7 @@ const CorporateTransaction = () => {
           <h3 className="font-semibold text-lg text-[#0B2B66] mb-2 group-hover:text-white">
             Nonprofit
           </h3>
-          <p className="text-gray-800 text-sm group-hover:text-white">
+          <p className="text-black group-hover:text-white font-sans leading-[28px]">
             Legal Counsel for Mission-Driven Nonprofits
           </p>
         </div>
@@ -243,7 +243,7 @@ const CorporateTransaction = () => {
 
       {/* CTA Button */}
       <div className="mt-12">
-        <button className="bg-[#1C4A87] text-white px-8 py-3 rounded-full font-medium cursor-pointer transition hover:bg-[#56B3B1]">
+        <button className="bg-[#1C4A87] text-[18px] font-[600] font-sans text-white rounded-full duration-400 px-[32px] py-[16px] cursor-pointer hover:bg-[#56B3B1]">
           Learn More About Corporate Law
         </button>
       </div>

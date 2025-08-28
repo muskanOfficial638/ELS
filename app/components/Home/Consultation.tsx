@@ -33,7 +33,7 @@ const Consultation: React.FC = () => {
         <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
           Ready to Elevate Your Legal Strategy?
         </h2>
-        <p className="text-sm sm:text-base max-w-5xl mb-6">
+        <p className="font-sans leading-[28px] max-w-5xl mb-6">
           Don&apos;t let legal complexities hinder your growth. Partner with
           Empowering Legal Solutions for agile, expert, and cost-effective legal
           support tailored to your business across all our practice areas.
@@ -41,13 +41,13 @@ const Consultation: React.FC = () => {
 
         <div className="flex flex-row gap-4">
           <button
-            className="bg-[#56B3B1] text-white px-6 py-2 rounded-full font-medium hover:bg-[#1C4A87] transition cursor-pointer"
+            className="bg-[#56B3B1] text-white text-[18px] font-[600] font-sans duration-400 px-[32px] py-[16px] rounded-full hover:bg-[#1C4A87] cursor-pointer"
             onClick={handleNavigateCall}
           >
             Schedule Your Consultation
           </button>
           <button
-            className="cursor-pointer border border-[#56B3B1] text-white px-6 py-2 rounded-full font-medium hover:bg-[#1C4A87] hover:border-[#1C4A87] transition"
+            className="cursor-pointer border border-[#56B3B1] text-[18px] font-[600] text-white font-sans duration-400 px-[32px] py-[16px] rounded-full hover:bg-[#1C4A87] hover:border-[#1C4A87]"
             onClick={handleNavigateEmail}
           >
             Call Us Today

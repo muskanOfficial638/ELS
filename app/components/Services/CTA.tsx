@@ -56,7 +56,7 @@ const CTA: React.FC<serviceProps> = ({ data }) => {
                 <button
                   key={index}
                   onClick={handleNavigateContact}
-                  className="border border-black text-[18px] font-[600] font-sans  rounded-full transition-colors duration-400 cursor-pointer px-[32px] py-[16px] text-black hover:border-[#56B3B1] hover:bg-[#56B3B1] hover:text-white transition-all"
+                  className="border border-black text-[18px] font-[600] font-sans  rounded-full duration-400 cursor-pointer px-[32px] py-[16px] text-black hover:border-[#56B3B1] hover:bg-[#56B3B1] hover:text-white transition-all"
                 >
                   {item}
                 </button>

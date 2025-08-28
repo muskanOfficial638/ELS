@@ -266,7 +266,7 @@ const News = () => {
         <h2 className="text-3xl font-bold text-[#0B2B66] mb-2 text-center">
           Our Blog
         </h2>
-        <p className="text-gray-600 mb-10 text-center">
+        <p className="text-black mb-10 text-center font-sans leading-[28px]">
           Stay Informed: Read Our Latest Legal Articles
         </p>
 
@@ -322,7 +322,7 @@ const News = () => {
                   <a href={`/blogs/${blog?.slug}`}>{blog?.title}</a>
                 </h3>
                 <div
-                  className="text-sm text-gray-600 mb-2 line-clamp-4"
+                  className="font-sans leading[28px] text-black mb-2 line-clamp-4"
                   dangerouslySetInnerHTML={{ __html: blog?.body }}
                 />
                 <a

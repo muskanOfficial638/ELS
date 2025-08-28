@@ -34,10 +34,10 @@ const Founder: React.FC = () => {
     <section className="md:pt-16 px-4">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
         <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2 md:order-1 lg:order-1">
-          <p className="font-body relative self-stretch font-bold text-[#002147] text-xl sm:text-[32px] tracking-[0.8px] sm:tracking-[1.20px] lg:tracking-[1.20px] leading-[36px] sm:leading-[48px]">
+          <h2 className="font-body relative self-stretch font-bold text-[#052b64] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
             About
-          </p>
-          <p className="font-sans relative self-stretch font-normal text-black text-base sm:text-xl tracking-[0.8px] sm:tracking-[1.00px] leading-6 sm:leading-[30px]">
+          </h2>
+          <p className="font-sans relative self-stretch text-black leading-[28px]">
             <span className="font-semibold">Syeda Nazifa Nawroj,</span> Esq. is
             an experienced corporate lawyer based in Silicon Valley, dedicated
             to empowering business owners, founders, and investors. Over nearly
@@ -60,10 +60,10 @@ const Founder: React.FC = () => {
             width={1000}
             height={500}
           />
-          <h2 className="font-body font-bold text-2xl mt-2">
+          <h3 className="font-body text-[#052b64] font-bold text-2xl mt-2">
             Syeda Nazifa Nawroj, Esq.
-          </h2>
-          <p className="font-sans text-[#000] text-[16px] sm:text-[16px] lg:text-[18px] tracking-[0.75px] sm:tracking-[1.00px] lg:tracking-[1.20px] leading-8 sm:leading-9 lg:leading-[48px]">
+          </h3>
+          <p className="font-sans text-[#000] text-[16px] sm:text-[16px] lg:text-[18px] leading-8 sm:leading-9 lg:leading-[48px]">
             Founder & Principal Attorney
           </p>
         </div>
