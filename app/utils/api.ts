@@ -38,3 +38,16 @@ export async function fetchServiceBySlug(slug: string) {
   if (!res.ok) throw new Error("Failed to fetch terms data");
   return res.json();
 }
+
+// Schedule consultation
+export async function fetchScheduleConsultation() {
+  const res = await fetch(`${apiPath}/api/schedule-consultations`, {
+    cache: "no-store",
+    headers: {
+      // "Content-Type": "application/json",
+      "X-API-KEY": "tbs-6zQ6v8m4J2q9p3X7",
+    },
+  });
+  if (!res.ok) throw new Error("Failed to fetch terms data");
+  return res.json();
+}

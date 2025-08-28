@@ -1,9 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Mail, MapPin, Globe } from "lucide-react";
+import { fetchScheduleConsultation } from "@/app/utils/api";
+import { apiPath } from "@/app/utils/api-path";
+// import { Mail, MapPin, Globe } from "lucide-react";
 import Link from "next/link";
 
-export default function NotarizationSection({ section }: any) {
-  // console.log("section1", section);
+export default async function NotarizationSection({ section }: any) {
+  const scheduleData = await fetchScheduleConsultation();
+  const parsedItems = JSON.parse(scheduleData[0]?.items);
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 items-center text-center md:items-start md:text-start">
@@ -41,7 +45,10 @@ export default function NotarizationSection({ section }: any) {
               itself.
             </p>
           </div> */}
-          <div className="text-black font-sans mb-[25px] leading-[28px]" dangerouslySetInnerHTML={{__html:section?.description}}/>
+          <div
+            className="text-black font-sans mb-[25px] leading-[28px]"
+            dangerouslySetInnerHTML={{ __html: section?.description }}
+          />
 
           <button className=" bg-[#1C4A87] text-white text-[18px] font-[600] font-sans px-[32px] py-[16px]  rounded-full transition-colors duration-400 hover:bg-[#56B3B1] cursor-pointer">
             {/* Get Legal Help Now */}
@@ -54,11 +61,52 @@ export default function NotarizationSection({ section }: any) {
         {/* Sidebar */}
         <div className="border border-[#E3E7F4] rounded-[5px]  md:px-[28px] md:py-[38px] px-[18px] py-[30px] order-1 md:order-2 lg:order-2">
           <h3 className="md:text-[25px] text-[23px] text-left font-bold text-[#0D2D63] mb-[30px] font-body ">
-            Schedule Consultation:
+            {scheduleData[0]?.title}
           </h3>
 
           <div className="space-y-4">
-            <Link href="mailto:contact@empowering.legal" className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3 duration-400">
+            {parsedItems?.map((item: any, index: number) => (
+              <div key={index}>
+                {index === 1 ? (
+                  // No link for second item
+                  <div className="flex text-left text-black items-center gap-3">
+                    <img
+                      src={`${apiPath}/storage/${item?.image}`}
+                      alt="schedule image"
+                      className="h-6 w-6"
+                    />
+                    <div className="font-sans text-[18px]">{item?.text}</div>
+                  </div>
+                ) : (
+                  // Link for first and third items
+                  <Link
+                    href={
+                      index === 0
+                        ? "mailto:contact@empowering.legal"
+                        : index === 2
+                        ? "https://sellyourstartup.com/"
+                        : "#"
+                    }
+                    className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3"
+                  >
+                    <img
+                      src={`${apiPath}/storage/${item?.image}`}
+                      alt="schedule image"
+                      className="h-6 w-6"
+                    />
+                    <div className="font-sans text-[18px]">{item?.text}</div>
+                  </Link>
+                )}
+                {index !== 2 && <hr className="border-gray-200 mt-4" />}
+              </div>
+            ))}
+          </div>
+
+          {/* <div className="space-y-4">
+            <Link
+              href="mailto:contact@empowering.legal"
+              className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3 duration-400"
+            >
               <Mail className="text-[#56B3B1]" size={24} />
               <div className="  font-sans md-text-[20px] text-[17px]">
                 contact@empowering.legal
@@ -72,18 +120,22 @@ export default function NotarizationSection({ section }: any) {
               </p>
             </div>
             <hr className="border-gray-200" />
-            <Link href="https://sellyourstartup.com/" className="flex text-left  items-center text-black hover:text-[#45B29A] gap-3 duration-400">
+            <Link
+              href="https://sellyourstartup.com/"
+              target="_blank"
+              className="flex text-left  items-center text-black hover:text-[#45B29A] gap-3 duration-400"
+            >
               <Globe className="text-[#56B3B1]" size={24} />
               <div className=" font-sans md:text-[20px] text-[17px]">
                 sellyourstartup.com
               </div>
             </Link>
-          </div>
+          </div> */}
 
-          <p className="mt-[30px] leading-[28px] text-black text-left font-sans">
-            Laoreet eu auctor non dignissim id arcu amet tristique ipsum. Eu at
-            amet adipiscing egestas quis risus aliquam volutpat.
-          </p>
+          <div
+            className="mt-[30px] leading-[28px] text-black text-left font-sans"
+            dangerouslySetInnerHTML={{ __html: scheduleData[0]?.description }}
+          />
         </div>
       </div>
     </section>

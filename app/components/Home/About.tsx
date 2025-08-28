@@ -52,6 +52,13 @@ your business needs it. Our bespoke expert staffing model ensures you gain acces
 seasoned legal professionals precisely when your projects demand their specialized
 insight.`;
 
+  const handleNavigate = () => {
+    window.open(
+      "https://app.lawmatics.com/forms/share/1deea1d5-aaf5-4485-bf02-edb7958361ee",
+      "_blank"
+    );
+  };
+
   return (
     <>
       {/* <div dangerouslySetInnerHTML={{ __html: data?.page_content || '' }} /> */}
@@ -100,7 +107,10 @@ insight.`;
               {expanded ? "Read less<<" : "Read more>>"}
             </button>
             <div className="lg:flex">
-              <button className="bg-[#1C4A87] text-[18px] font-[600] font-sans text-white rounded-full duration-400 px-[32px] py-[16px] cursor-pointer hover:bg-[#56B3B1]">
+              <button
+                onClick={handleNavigate}
+                className="bg-[#1C4A87] text-[18px] font-[600] font-sans text-white rounded-full duration-400 px-[32px] py-[16px] cursor-pointer hover:bg-[#56B3B1]"
+              >
                 Get Legal Help Now
               </button>
             </div>
