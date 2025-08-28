@@ -6,7 +6,7 @@ export default function CaseInquirySection({section}:any) {
   return (
     <section className="pb-16 px-4 bg-white">
       {/* grid md:grid-cols-2 gap-10 */}
-      <div className="max-w-6xl mx-auto  items-center text-center md:items-start md:text-start">
+      <div className="max-w-7xl mx-auto  items-center text-center md:items-start md:text-start">
         {/* Image */}
         {/* <div className="w-full">
           <Image
@@ -20,7 +20,7 @@ export default function CaseInquirySection({section}:any) {
 
         {/* Text Content */}
         <div>
-          <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0D2D63] mb-4 font-body">
+          <h2 className="text-[30px] leading-[43px] font-bold text-[#0D2D63] mb-4 font-body">
             {/* Do You Think You Have A Case? */}
             {section?.section_heading}
           </h2>

@@ -41,10 +41,10 @@ const CTA: React.FC<serviceProps> = ({ data }) => {
       <div className="flex flex-col gap-12 items-center justify-center relative px-4 sm:px-8 md:px-16 lg:px-[90px] py-16">
         {/* <div dangerouslySetInnerHTML={{__html:data?.content?.[0]?.page_content}}></div> */}
         <div className="flex flex-col items-start gap-4 md:gap-8 w-full">
-          <h2 className="text-center md:text-left font-sans font-bold text-black text-3xl md:text-5xl">
+          <h2 className="text-center font-bold text-[#0D2D63] text-3xl md:text-5xl w-full">
             {title}
           </h2>
-          <p className="text-justify font-body font-normal text-black text-sm md:text-base leading-6 md:leading-[22px]">
+          <p className="text-center font-sans font-normal text-black text-[16px] leading-[28px]">
             {paragraph}
           </p>
         </div>
@@ -56,7 +56,7 @@ const CTA: React.FC<serviceProps> = ({ data }) => {
                 <button
                   key={index}
                   onClick={handleNavigateContact}
-                  className="border border-black rounded-full cursor-pointer px-6 py-3 text-sm md:text-base text-black hover:bg-[#56B3B1] hover:text-white transition-all"
+                  className="border border-black text-[18px] font-[600] font-sans  rounded-full transition-colors duration-400 cursor-pointer px-[32px] py-[16px] text-black hover:border-[#56B3B1] hover:bg-[#56B3B1] hover:text-white transition-all"
                 >
                   {item}
                 </button>
