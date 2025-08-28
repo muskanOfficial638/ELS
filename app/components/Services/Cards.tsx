@@ -109,9 +109,9 @@ const Cards: React.FC = async () => {
           return (
             <Link href={`services/${card?.slug}`}
               key={card?.id}
-              className="bg-[#0B2B66] block rounded-lg text-center shadow-lg p-8 transition-colors duration-400   group text-center hover:bg-white "
+              className="bg-[#0B2B66] block rounded-lg text-center shadow-lg p-6 transition-colors duration-400   group text-center hover:bg-white "
             >
-              <h3 className="text-white text-[21px] text-lg font-semibold mb-[12px] group-hover:text-[#0B2B66]">
+              <h3 className="text-[#8dedeb] text-left text-[20px] text-lg font-semibold mb-[12px] group-hover:text-[#0B2B66]">
                 {card?.title}
               </h3>
               {/* {Array.isArray(parsedSections) &&
@@ -119,7 +119,7 @@ const Cards: React.FC = async () => {
                   return ( */}
                     <div
                       // key={index}
-                      className="text-white text-[16px] leading-[28px] group-hover:text-black font-sans"
+                      className="text-white text-[16px] text-left leading-[28px] group-hover:text-black font-sans"
                     >
                       <div
                         className="line-clamp-5"
@@ -127,10 +127,7 @@ const Cards: React.FC = async () => {
                       />
                     </div>
                   {/* );
-                })} */}
-              <button className="block w-full text-white text-[16px] group-hover:text-black font-sans font-[600] mt-[12px]">
-                {"Read more >>"}
-              </button>
+                })} */}              
             </Link>
           );
         })}

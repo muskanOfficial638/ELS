@@ -20,11 +20,11 @@ export default function CaseInquirySection({section}:any) {
 
         {/* Text Content */}
         <div>
-          <h2 className="text-[30px] leading-[43px] font-bold text-[#0D2D63] mb-4 font-body">
+          <h2 className="md:text-[30px] text-[25px] md:leading-[43px] leading-[40px] font-bold text-[#0D2D63] mb-4 font-body">
             {/* Do You Think You Have A Case? */}
             {section?.section_heading}
           </h2>
-          <div className="text-black mt-2 font-sans leading-5" dangerouslySetInnerHTML={{__html:section?.description}}/>
+          <div className="text-black mt-2 font-sans leading-5 services-details-content" dangerouslySetInnerHTML={{__html:section?.description}}/>
           {/* <p className="text-black mb-6 font-sans">
             Lorem ipsum is a placeholder text commonly used in graphic design, publishing,
             and web development to occupy space in layouts where the final content is not

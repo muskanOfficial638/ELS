@@ -9,7 +9,7 @@ export default function NotarizationSection({ section }: any) {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 items-center text-center md:items-start md:text-start">
         {/* Left Content */}
         <div className="lg:col-span-2 space-y-4 order-2 md:order-1 lg:order-1">
-          <h2 className="text-[30px] leading-[43px] font-bold text-[#0D2D63] font-body">
+          <h2 className="md:text-[30px] text-[25px] md:leading-[43px] leading-[40px] font-bold text-[#0D2D63] font-body">
             {/* Reliable and Professional <br />
             Notarization Services */}
             {section?.section_heading}
@@ -52,32 +52,32 @@ export default function NotarizationSection({ section }: any) {
         </div>
 
         {/* Sidebar */}
-        <div className="border border-[#E3E7F4] rounded-[5px]  px-[28px] py-[38px] order-1 md:order-2 lg:order-2">
-          <h3 className="text-[25px] text-left font-bold text-[#0D2D63] mb-[30px] font-body ">
+        <div className="border border-[#E3E7F4] rounded-[5px]  md:px-[28px] md:py-[38px] px-[18px] py-[30px] order-1 md:order-2 lg:order-2">
+          <h3 className="md:text-[25px] text-[23px] text-left font-bold text-[#0D2D63] mb-[30px] font-body ">
             Schedule Consultation:
           </h3>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <Link href="mailto:contact@empowering.legal" className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3 duration-400">
               <Mail className="text-[#56B3B1]" size={24} />
-              <p className="text-black font-sans text-[20px]">
+              <div className="  font-sans md-text-[20px] text-[17px]">
                 contact@empowering.legal
-              </p>
-            </div>
+              </div>
+            </Link>
             <hr className="border-gray-200" />
-            <div className="flex items-center gap-3">
+            <div className="flex text-left items-center gap-3 text-black ">
               <MapPin className="text-[#56B3B1]" size={24} />
-              <p className="text-black font-sans text-[20px] ">
+              <p className="font-sans md:text-[20px] text-[17px] ">
                 San Francisco Bay Area, California
               </p>
             </div>
             <hr className="border-gray-200" />
-            <div className="flex items-center gap-3">
+            <Link href="https://sellyourstartup.com/" className="flex text-left  items-center text-black hover:text-[#45B29A] gap-3 duration-400">
               <Globe className="text-[#56B3B1]" size={24} />
-              <p className="text-black font-sans text-[20px] ">
+              <div className=" font-sans md:text-[20px] text-[17px]">
                 sellyourstartup.com
-              </p>
-            </div>
+              </div>
+            </Link>
           </div>
 
           <p className="mt-[30px] leading-[28px] text-black text-left font-sans">
