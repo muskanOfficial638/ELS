@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+export const dynamic = "force-dynamic";
 import BuildSomething from "@/app/components/Services/contentPage/BuildSomething";
 import CaseInquirySection from "@/app/components/Services/contentPage/CaseInquirySection";
 import FractionalGeneral from "@/app/components/Services/contentPage/FractionalGeneral";
@@ -10,13 +10,14 @@ import { fetchServiceBySlug } from "@/app/utils/api";
 import { apiPath, canonicalPath, frontPath } from "@/app/utils/api-path";
 import { Metadata } from "next";
 
-type Props = {
-  params: { slug: string };
-};
+export async function generateMetadata(context: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await context.params; // ✅ Await it
+  const slug = resolvedParams.slug;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const res = await fetchServiceBySlug(params?.slug);
+    const res = await fetchServiceBySlug(slug);
     const service = res[0];
     return {
       title: service?.title,
@@ -52,8 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const ServicePage: React.FC = async ({ params }: any) => {
-  const { slug } = params;
+export default async function ServicePage(context: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = await context.params; // ✅ Await it
+  const slug = resolvedParams.slug;
+
   const serviceData = await fetchServiceBySlug(slug);
   const parsedSections = JSON.parse(serviceData[0]?.sections);
 
@@ -71,6 +76,4 @@ const ServicePage: React.FC = async ({ params }: any) => {
       {/* <FaqSection /> */}
     </>
   );
-};
-
-export default ServicePage;
+}

@@ -1,15 +1,16 @@
+// app/blogs/[slug]/page.tsx
 import { Metadata } from "next";
 import { apiPath, frontPath, canonicalPath } from "@/app/utils/api-path";
 import BlogPageClient from "./BlogPageClient";
 import { fetchBlogBySlug } from "@/app/utils/api";
 
-type Props = {
-  params: { slug: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(context: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await context.params; // ✅ Await it
+  const slug = resolvedParams.slug;
   try {
-    const res = await fetchBlogBySlug(params?.slug);
+    const res = await fetchBlogBySlug(slug);
     const post = res[0];
     return {
       title: post?.title,
@@ -45,6 +46,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function BlogPage({ params }: Props) {
-  return <BlogPageClient slug={params.slug} />;
+export default async function BlogPage(context: {
+  params: Promise<{ slug: string }>;
+}) {
+  const resolvedParams = await context.params; // ✅ Await it
+  const slug = resolvedParams.slug;
+  return <BlogPageClient slug={slug} />;
 }
