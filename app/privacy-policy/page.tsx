@@ -38,29 +38,39 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const PrivacyPolicy: React.FC = async () => {
-  const data = await fetchCmsPagesBySlug("privacy-policy");
+  const privacyPageData = await fetchCmsPagesBySlug("privacy-policy");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Privacy Policy",
-    url: "https://empowering.legal/terms-and-conditions", // You might want to change this to /privacy-policy if that's the correct route
-    description:
-      "This Privacy Policy explains how Empowering Legal Solutions collects, uses, discloses, and safeguards your information when you visit our website.",
+    url: `${frontPath}${privacyPageData?.slug}`,
+    description: privacyPageData?.meta_description,
     mainEntity: {
       "@type": "CreativeWork",
       name: "Privacy Policy",
       creator: {
         "@type": "Organization",
         name: "Empowering Legal Solutions",
-        url: "https://empowering.legal",
+        url: frontPath,
       },
       inLanguage: "en",
-      url: "https://empowering.legal/terms-and-conditions",
+      url: `${frontPath}${privacyPageData?.slug}`,
       datePublished: "2024-01-01", // Update as needed
-      license: "https://empowering.legal/terms-and-conditions",
+      license: `${frontPath}${privacyPageData?.slug}`,
     },
   };
+
+  if (
+    privacyPageData?.content?.[0]?.page_content &&
+    typeof privacyPageData.content[0].page_content === "string"
+  ) {
+    privacyPageData.content[0].page_content =
+      privacyPageData.content[0].page_content.replace(
+        /src="\/storage/g,
+        `src="${apiPath}/storage`
+      );
+  }
 
   return (
     <>
@@ -72,7 +82,7 @@ const PrivacyPolicy: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <PrivacyPolicyComponent data={data} />
+      <PrivacyPolicyComponent data={privacyPageData} />
     </>
   );
 };

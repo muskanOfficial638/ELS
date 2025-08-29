@@ -40,12 +40,12 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Deals: React.FC = async () => {
-  const data = await fetchCmsPagesBySlug("deals");
+  const dealsPageData = await fetchCmsPagesBySlug("deals");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BusinessEvent",
     name: "DNR Business Solutions Asset Sale to SurgePays",
-    startDate: "2024-11-15", // Adjust as needed
+    startDate: "2024-11-15",
     eventStatus: "https://schema.org/EventCompleted",
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
     location: {
@@ -55,13 +55,23 @@ const Deals: React.FC = async () => {
     organizer: {
       "@type": "Organization",
       name: "Empowering Legal Solutions",
-      url: "https://empowering.legal",
+      url: frontPath,
     },
-    description:
-      "DNR Business Solutions, a private retail software startup in California, completed a substantially all-assets sale to SurgePays, a fintech public company, with Empowering Legal Solutions providing legal counsel.",
-    image: "https://empowering.legal/ELS.webp",
-    url: "https://empowering.legal/deals",
+    description: dealsPageData?.meta_description,
+    image: `${apiPath}/storage/${dealsPageData?.feature_image}`,
+    url: `${frontPath}${dealsPageData?.slug}`,
   };
+
+  if (
+    dealsPageData?.content?.[0]?.page_content &&
+    typeof dealsPageData.content[0].page_content === "string"
+  ) {
+    dealsPageData.content[0].page_content =
+      dealsPageData.content[0].page_content.replace(
+        /src="\/storage/g,
+        `src="${apiPath}/storage`
+      );
+  }
 
   return (
     <>
@@ -73,7 +83,7 @@ const Deals: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <Legal data={data} />
+      <Legal data={dealsPageData} />
       {/* <DLA />
       <Fenwick /> */}
     </>

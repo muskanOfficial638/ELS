@@ -38,29 +38,39 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const TermsPage: React.FC = async () => {
-  const data = await fetchCmsPagesBySlug("terms-and-conditions");
+  const termsPageData = await fetchCmsPagesBySlug("terms-and-conditions");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Terms and Conditions",
-    url: "https://empowering.legal/terms-and-conditions",
-    description:
-      "These terms and conditions outline the rules and regulations for the use of Empowering Legal Solutions’ website and services.",
+    url: `${frontPath}${termsPageData?.slug}`,
+    description: termsPageData?.meta_description,
     mainEntity: {
       "@type": "CreativeWork",
       name: "Terms and Conditions",
       creator: {
         "@type": "Organization",
         name: "Empowering Legal Solutions",
-        url: "https://empowering.legal",
+        url: frontPath,
       },
       inLanguage: "en",
-      url: "https://empowering.legal/terms-and-conditions",
+      url: `${frontPath}${termsPageData?.slug}`,
       datePublished: "2024-01-01", // Update to actual publish date
-      license: "https://empowering.legal/terms-and-conditions",
+      license: `${frontPath}${termsPageData?.slug}`,
     },
   };
+
+  if (
+    termsPageData?.content?.[0]?.page_content &&
+    typeof termsPageData.content[0].page_content === "string"
+  ) {
+    termsPageData.content[0].page_content =
+      termsPageData.content[0].page_content.replace(
+        /src="\/storage/g,
+        `src="${apiPath}/storage`
+      );
+  }
 
   return (
     <>
@@ -72,7 +82,7 @@ const TermsPage: React.FC = async () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <TOS data={data} />
+      <TOS data={termsPageData} />
       {/* <TOS /> */}
     </>
   );

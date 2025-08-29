@@ -2,28 +2,29 @@ import React from "react";
 import ContactUsComponent from "../components/Contact";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { canonicalPath, frontPath } from "../utils/api-path";
 
 export const generateMetadata = (): Metadata => {
   return {
     title: "Contact Us | ELS",
-    description: "contact@empowering.legal",
+    description: "Contact Empowering Legal Solutions for corporate legal advice.",
     openGraph: {
       title: "Contact Us | ELS",
-      description: "contact@empowering.legal",
-      url: "https://empowering.legal/contact-us",
+      description: "Contact Empowering Legal Solutions for corporate legal advice.",
+      url: `${frontPath}/contact-us`,
       images: [
         {
-          url: "/ELS.webp", // adjust path if needed
+          url: `${frontPath}/ELS_logo.png`,
           width: 1200,
           height: 630,
-          alt: "Empowering Legal Solutions",
+          alt: "Contact Us | ELS",
         },
       ],
       siteName: "Empowering Legal Solutions",
       type: "website",
     },
     alternates: {
-      canonical: "https://empowering.legal/contact-us",
+      canonical: `${canonicalPath}/contact-us`,
     },
   };
 };
@@ -34,13 +35,13 @@ const ContactUs: React.FC = () => {
     name: "Contact Us",
     description:
       "Contact Empowering Legal Solutions for corporate legal advice.",
-    url: "https://empowering.legal/contact-us",
+    url: `${frontPath}/contact-us`,
     mainEntity: {
       "@type": "Organization",
       name: "Empowering Legal Solutions",
-      url: "https://empowering.legal",
+      url: frontPath,
       email: "contact@empowering.legal",
-      logo: "https://empowering.legal/ELS.webp",
+      logo: `${frontPath}/ELS_logo.png`,
       contactPoint: {
         "@type": "ContactPoint",
         email: "contact@empowering.legal",

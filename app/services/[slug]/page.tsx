@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const dynamic = "force-dynamic";
 import BuildSomething from "@/app/components/Services/contentPage/BuildSomething";
 import CaseInquirySection from "@/app/components/Services/contentPage/CaseInquirySection";
@@ -62,17 +63,28 @@ export default async function ServicePage(context: {
   const serviceData = await fetchServiceBySlug(slug);
   const parsedSections = JSON.parse(serviceData[0]?.sections);
 
+  // Replace image src paths in all sections' descriptions
+  const processedSections = parsedSections.map((section: any) => {
+    if (section?.description) {
+      section.description = section.description.replace(
+        /src="\/storage/g,
+        `src="${apiPath}/storage`
+      );
+    }
+    return section;
+  });
+
   return (
     <>
       <ServiceHeroSection
         feature_image={serviceData[0]?.feature_image}
         title={serviceData[0]?.title}
       />
-      <NotarizationSection section={parsedSections[0]} />
-      <CaseInquirySection section={parsedSections[1]} />
-      <LegalStructure section={parsedSections[2]} />
-      <FractionalGeneral section={parsedSections[3]} />
-      <BuildSomething section={parsedSections[4]} />
+      <NotarizationSection section={processedSections[0]} />
+      <CaseInquirySection section={processedSections[1]} />
+      <LegalStructure section={processedSections[2]} />
+      <FractionalGeneral section={processedSections[3]} />
+      <BuildSomething section={processedSections[4]} />
       {/* <FaqSection /> */}
     </>
   );
