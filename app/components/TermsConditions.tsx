@@ -8,7 +8,7 @@ interface TOSProps {
 const TOS: React.FC<TOSProps> = ({ data }) => {
 // const TOS: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto py-16 h-auto">
+    <div className="max-w-6xl mx-auto px-4 py-16 h-auto terms-content font-sans">
       <div
         dangerouslySetInnerHTML={{ __html: data?.content?.[0]?.page_content }}
       ></div>

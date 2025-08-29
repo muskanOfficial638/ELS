@@ -10,7 +10,7 @@ const Legal: React.FC<DealsProps> = ({ data }) => {
   // const Legal: React.FC = () => {
 
   return (
-    <div className="flex flex-col gap-12 items-center justify-center relative px-6 sm:px-16 lg:px-[90px] py-16">
+    <div className="flex flex-col gap-12 items-center justify-center relative px-6 sm:px-16 lg:px-[90px] py-16  deals-content font-sans">
       <div
         dangerouslySetInnerHTML={{ __html: data?.content?.[0]?.page_content }}
       ></div>

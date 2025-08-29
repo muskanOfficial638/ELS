@@ -12,7 +12,7 @@ const PrivacyPolicyComponent: React.FC<PrivacyProps> = ({ data }) => {
   return (
     <>
       <div
-        className="max-w-6xl mx-auto h-auto py-16"
+        className="max-w-6xl mx-auto h-auto px-4 py-16 privacy-content font-sans"
         dangerouslySetInnerHTML={{ __html: data?.content?.[0]?.page_content }}
       ></div>
       {/* <div className="max-w-6xl mx-auto h-auto py-16">
