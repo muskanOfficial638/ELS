@@ -29,7 +29,13 @@ const BlogPost: React.FC = () => {
           },
         })
         .then((res: any) => {
-          setPosts(res.data);
+          const sortedPosts = res.data.sort((a: any, b: any) => {
+            return (
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+            );
+          });
+          setPosts(sortedPosts);
         })
         .catch((error: any) => {
           console.error("Error fetching blog posts:", error);
@@ -59,9 +65,9 @@ const BlogPost: React.FC = () => {
         </div>
       ) : (
         <> */}
-          {/* <FeaturedArticle featuredArticle={posts[0]} /> */}
-          <RelatedArticles relatedArticles={posts} isLoading={loading}/>
-        {/* </>
+      {/* <FeaturedArticle featuredArticle={posts[0]} /> */}
+      <RelatedArticles relatedArticles={posts} isLoading={loading} />
+      {/* </>
       )} */}
     </>
   );

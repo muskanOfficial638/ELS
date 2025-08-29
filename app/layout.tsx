@@ -1,8 +1,15 @@
-import { Geist, Geist_Mono, Libre_Baskerville, Open_Sans } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Libre_Baskerville,
+  Open_Sans,
+} from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import { fetchGlobalSettings } from "./utils/api";
+import GtmNoScript from "./components/GtmNoScript";
 
 const libre = Libre_Baskerville({
   variable: "--font-libre",
@@ -19,16 +26,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const openSans  = Open_Sans({
+const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalSettingData = await fetchGlobalSettings();
+
   return (
     <html lang="en">
       <head>
@@ -41,23 +50,19 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
           rel="stylesheet"
         />
-
-        {/* Slick Carousel CSS */}
-        {/* <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        /> */}
+        {/*  Google Tag Manager code */}
+        <Script id="google-tag-manager">
+          {globalSettingData[0]?.google_analytics_code}
+        </Script>
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${libre.variable} ${openSans.variable} antialiased`}
       >
+        {/* < Google Tag Manager (noscript)  */}
+        <GtmNoScript
+          googleTagManager={globalSettingData[0]?.google_tag_manager}
+        />
         <Header />
         <main>{children}</main>
         <Footer />

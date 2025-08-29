@@ -7,14 +7,55 @@ import LegalStructure from "@/app/components/Services/contentPage/LegalStructure
 import NotarizationSection from "@/app/components/Services/contentPage/NotarizationSection";
 import ServiceHeroSection from "@/app/components/Services/contentPage/ServiceHeroSection";
 import { fetchServiceBySlug } from "@/app/utils/api";
+import { apiPath, canonicalPath, frontPath } from "@/app/utils/api-path";
+import { Metadata } from "next";
 
-const ServicePage: React.FC = async ({ params }:any) => {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const res = await fetchServiceBySlug(params?.slug);
+    const service = res[0];
+    return {
+      title: service?.title,
+      description: service?.short_description,
+      openGraph: {
+        title: service?.title,
+        description: service?.short_description,
+        url: `${frontPath}services/${service?.slug}`,
+        images: [
+          {
+            url: `${apiPath}/storage/${service?.feature_image}`,
+            width: 1200,
+            height: 630,
+            alt: service?.meta_title,
+          },
+        ],
+        siteName: "Empowering Legal Solutions",
+        type: "website",
+      },
+      alternates: {
+        canonical: `${canonicalPath}${service?.slug}`,
+      },
+      other: {
+        keywords: service?.keywords,
+      },
+    };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (err) {
+    return {
+      title: "Service Detail",
+      description: "Could not load service.",
+    };
+  }
+}
+
+const ServicePage: React.FC = async ({ params }: any) => {
   const { slug } = params;
-
   const serviceData = await fetchServiceBySlug(slug);
-  // console.log("service Data", serviceData[0]);
   const parsedSections = JSON.parse(serviceData[0]?.sections);
-  // console.log("parsed Sections",parsedSections)
 
   return (
     <>
