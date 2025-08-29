@@ -44,7 +44,7 @@ p:empty {
     height: 20px;
 }
 
-.services-details-content h3 {
+.services-details-content h3, .blog-details h3{
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 10px;

@@ -86,7 +86,7 @@ const BlogPage: FC<{ params: Promise<PageProps["params"]> }> = ({ params }) => {
       </div>
 
       <div
-        className="prose prose-lg max-w-none"
+        className="prose font-sans blog-details text-black leading-[28px] prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: blogData?.body }}
       />
 
