@@ -135,26 +135,26 @@ const ContactUsComponent: React.FC = () => {
       />
       <ToastContainer />
       <div className="gap-8 px-4 lg:px-[90px] h-auto py-16">
-        <div className="font-sans font-normal text-black text-[24px] lg:text-[32px] text-center tracking-[0] leading-[normal]">
+        <div className=" text-[#0D2D63] text-[24px] lg:text-[48px] text-center tracking-[0] leading-[normal]">
           Contact Us
         </div>
         <div className="px-4 lg:px-[90px] h-auto lg:h-[700px] mx-auto bg-[#002147] rounded-xl p-6 lg:p-8 shadow-lg mt-10 mb-20">
           <div className="flex flex-col lg:flex-row justify-between gap-8">
             <div className="mt-10 lg:mt-20 flex flex-col gap-6 lg:gap-8 w-full lg:w-[40%]">
-              <h3 className="font-sans text-white text-2xl lg:text-4xl font-bold">
+              <h3 className="text-white text-2xl lg:text-4xl font-bold">
                 CONTACT
               </h3>
               <div className="font-body flex flex-col gap-4 lg:gap-6 cursor-pointer">
                 <div className="flex items-center gap-4">
                   <LocationIcon />
-                  <span className="text-white text-sm lg:text-base font-normal">
+                  <span className=" font-sans text-white leading[28px]">
                     San Francisco Bay Area, California
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <LinkedinSolidIcon />
                   <a
-                    className="text-white text-sm lg:text-base font-normal cursor-pointer"
+                    className="font-sans text-white leading[28px] cursor-pointer"
                     href="https://www.linkedin.com/company/empowering-legal-solutions/"
                     target="_blank"
                   >
@@ -163,14 +163,14 @@ const ContactUsComponent: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-4">
                   <MailIcon />
-                  <span className="text-white text-sm lg:text-base font-normal cursor-pointer">
+                  <span className="font-sans text-white leading[28px] cursor-pointer">
                     contact@empowering.legal
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <LinkIcon />
                   <a
-                    className="text-[#9747ff] underline text-sm lg:text-base font-normal"
+                    className="text-[#9747ff] font-sans leading[28px] cursor-pointer"
                     href="https://sellyourstartup.com/"
                     target="_blank"
                   >
@@ -180,7 +180,7 @@ const ContactUsComponent: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <CalendarIcon />
                   <a
-                    className="text-white text-sm lg:text-base font-normal underline"
+                    className="font-sans text-white leading[28px] cursor-pointer"
                     target="_blank"
                     href="https://www.differencepress.com/book-launch-syeda-nazifa-nawroj?rq=Nazifa&fbclid=IwZXh0bgNhZW0CMTEAAR2pgXIAzW0i5tlXi3wb04k90Gs9ZnSG8jx6QURNruIfTU6fJKM6ufapJ6c_aem_Y5SN7xrDdTIS-wLCtnd1RQ"
                   >
@@ -229,7 +229,7 @@ const ContactUsComponent: React.FC = () => {
                     {...register("lastName", {
                       required: "Last Name is required",
                     })}
-                    className={`w-full pl-12 pr-4 py-3 bg-white rounded-lg border ${
+                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border ${
                       errors.lastName ? "border-red-500" : "border-gray-300"
                     } focus:outline-none`}
                   />
@@ -257,7 +257,7 @@ const ContactUsComponent: React.FC = () => {
                         message: "Enter a valid email",
                       },
                     })}
-                    className={`w-full pl-12 pr-4 py-3 bg-white rounded-lg border ${
+                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border ${
                       errors.email ? "border-red-500" : "border-gray-300"
                     } focus:outline-none`}
                   />
@@ -277,7 +277,7 @@ const ContactUsComponent: React.FC = () => {
                       setValue("phone", value);
                       trigger("phone");
                     }}
-                    containerClass="py-2 bg-white rounded-lg pr-2"
+                    containerClass="py-2 font-sans bg-white rounded-lg pr-2"
                     inputStyle={{ width: "100%" }}
                   />
                   {errors.phone && (
@@ -289,7 +289,7 @@ const ContactUsComponent: React.FC = () => {
                 rows={6}
                 placeholder="What would you like to discuss on the call?"
                 {...register("message", { required: "Message is required" })}
-                className={`mb-0 sm:mb-5 w-full px-4 py-3 bg-white rounded-lg border ${
+                className={`mb-0 font-sans sm:mb-5 w-full px-4 py-3 bg-white rounded-lg border ${
                   errors.message ? "border-red-500" : "border-gray-300"
                 } focus:outline-none`}
               />
@@ -306,11 +306,11 @@ const ContactUsComponent: React.FC = () => {
                       {...register("terms", {
                         required: "You must agree to the terms",
                       })}
-                      className="w-4 h-4"
+                      className="w-4 h-4 font-sans"
                     />
                     <label
                       htmlFor="agree"
-                      className="font-body text-white text-sm lg:text-base font-normal ml-4 mt-[1px]"
+                      className="font-sans  text-white text-sm lg:text-base font-normal ml-4 mt-[1px]"
                     >
                       I agree with all the{" "}
                       <span
@@ -328,7 +328,7 @@ const ContactUsComponent: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm lg:text-base rounded-full hover:opacity-90 transition"
+                  className="inline-flex font-sans cursor-pointer items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm lg:text-base rounded-full hover:opacity-90 transition"
                 >
                   Send
                   {loading && (

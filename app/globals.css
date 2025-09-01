@@ -53,7 +53,7 @@ p:empty {
     margin-top: 30px;
     font-family: 'Libre Baskerville', 'Libre Baskerville Fallback';
 }
-.services-details-content ul {
+.services-details-content ul, .privacy-content ul, .terms-content ul {
     list-style: disc;
     padding-left: 20px;
 }
@@ -64,6 +64,7 @@ p:empty {
 .services-details-content ul li, .deals-content ol li {
     line-height: 28px;
     margin-bottom: 10px;
+    margin-left: 20px;
     text-align: left;
 }
 .services-details-content p, .privacy-content p, .terms-content p{
