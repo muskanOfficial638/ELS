@@ -22,10 +22,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
     // "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
     description: homePageData?.meta_description,
     // " Empowering Legal Solutions provides expert, scalable legal support for businesses across Business Formation, Fundraising, Intellectual Property (IP), Privacy, Complex Transactions, M&A, Non-profit, and General Counsel. Streamline operations and ensure compliance. Get your legal department set up today.",
-    icons: {
-      icon: `${apiPath}/storage/${homePageData?.content[0]?.image}`,
-      //  `${frontPath}ELS_logo.png`,
-    },
+    // icons: {
+    //   icon: `${apiPath}/storage/${homePageData?.content[0]?.image}`,
+    // },
     openGraph: {
       title: homePageData?.meta_title,
       description: homePageData?.meta_description,

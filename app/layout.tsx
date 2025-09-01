@@ -8,8 +8,9 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Script from "next/script";
-import { fetchGlobalSettings } from "./utils/api";
+import { fetchGlobalSettings, fetchMenusByName } from "./utils/api";
 import GtmNoScript from "./components/GtmNoScript";
+import { apiPath } from "./utils/api-path";
 
 const libre = Libre_Baskerville({
   variable: "--font-libre",
@@ -37,13 +38,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const globalSettingData = await fetchGlobalSettings();
+  // console.log("globalSettingData",globalSettingData[0])
 
   return (
     <html lang="en">
       <head>
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <link rel="icon" href={`${apiPath}/storage/${globalSettingData[0]?.favicon}`} type="image/x-icon" sizes="16x16"/>
         {/* Merriweather Font */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
@@ -63,9 +65,9 @@ export default async function RootLayout({
         <GtmNoScript
           googleTagManager={globalSettingData[0]?.google_tag_manager}
         />
-        <Header />
+        <Header headerData={await fetchMenusByName('header')} headerLogo={globalSettingData[0]?.main_logo}/>
         <main>{children}</main>
-        <Footer />
+        <Footer footerData={await fetchMenusByName('footer')} footerContent={globalSettingData[0]}/>
 
         {/* Voiceflow Chatbot Script */}
         <Script id="voiceflow-chat" strategy="afterInteractive">

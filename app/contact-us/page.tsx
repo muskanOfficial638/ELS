@@ -3,14 +3,17 @@ import ContactUsComponent from "../components/Contact";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { canonicalPath, frontPath } from "../utils/api-path";
+import { fetchScheduleConsultation } from "../utils/api";
 
 export const generateMetadata = (): Metadata => {
   return {
     title: "Contact Us | ELS",
-    description: "Contact Empowering Legal Solutions for corporate legal advice.",
+    description:
+      "Contact Empowering Legal Solutions for corporate legal advice.",
     openGraph: {
       title: "Contact Us | ELS",
-      description: "Contact Empowering Legal Solutions for corporate legal advice.",
+      description:
+        "Contact Empowering Legal Solutions for corporate legal advice.",
       url: `${frontPath}/contact-us`,
       images: [
         {
@@ -28,7 +31,10 @@ export const generateMetadata = (): Metadata => {
     },
   };
 };
-const ContactUs: React.FC = () => {
+
+const ContactUs: React.FC = async () => {
+  const contactArea = await fetchScheduleConsultation();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -61,7 +67,7 @@ const ContactUs: React.FC = () => {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <ContactUsComponent />
+      <ContactUsComponent contactInfo={contactArea[1]} />
     </>
   );
 };

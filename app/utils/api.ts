@@ -78,3 +78,15 @@ export async function fetchGlobalSettings() {
   return res.json();
 }
 
+// Blog/post by slug
+export async function fetchMenusByName(menuName: string) {
+  const res = await fetch(`${apiPath}/api/menus/${menuName}`, {
+    cache: "no-store",
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-KEY": "tbs-6zQ6v8m4J2q9p3X7",
+    },
+  });
+  if (!res.ok) throw new Error("Failed to fetch terms data");
+  return res.json();
+}

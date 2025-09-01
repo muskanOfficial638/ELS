@@ -86,6 +86,10 @@ p:empty {
   color: #0D2D63;   
 }
 
+.copyrightText a{
+  color: #45B29A; 
+}
+
 @media(max-width:767px){
   .services-details-content h3{
   font-size: 22px;

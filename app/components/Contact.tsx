@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import axios from "axios";
@@ -6,11 +7,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { FormValues } from "../types";
 import {
-  CalendarIcon,
-  LinkedinSolidIcon,
-  LinkIcon,
-  LocationIcon,
-  MailIcon,
+  // CalendarIcon,
+  // LinkedinSolidIcon,
+  // LinkIcon,
+  // LocationIcon,
+  // MailIcon,
   MailIcon2,
   textIcon,
 } from "../assets";
@@ -19,12 +20,22 @@ import "react-phone-input-2/lib/style.css";
 import Image from "next/image";
 import Script from "next/script";
 import "react-toastify/dist/ReactToastify.css";
+import { apiPath } from "../utils/api-path";
+import Link from "next/link";
+
 declare global {
   interface Window {
     lm_intake?: (...args: any[]) => void;
   }
 }
-const ContactUsComponent: React.FC = () => {
+interface ContactUsComponentProps {
+  contactInfo: any; // Or better, replace `any` with a proper type if available
+}
+const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
+  contactInfo,
+}) => {
+  const parsedItems = JSON.parse(contactInfo?.items);
+
   const {
     register,
     handleSubmit,
@@ -35,7 +46,7 @@ const ContactUsComponent: React.FC = () => {
   } = useForm<FormValues>();
   const [phone, setPhone] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-   const [lmLoaded, setLmLoaded] = useState(false);
+  const [lmLoaded, setLmLoaded] = useState(false);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
@@ -79,7 +90,7 @@ const ContactUsComponent: React.FC = () => {
         setPhone("");
         setValue("phone", "");
         setLoading(false);
-        console.log("lmLoaded",lmLoaded)
+        console.log("lmLoaded", lmLoaded);
         // Optionally, you can redirect manually after some delay if lm_intake doesn't redirect automatically
         // setTimeout(() => {
         //   window.location.href = "https://your-lawmatics-redirect-url.com";
@@ -94,9 +105,9 @@ const ContactUsComponent: React.FC = () => {
     }
   };
 
-  const handleNavigateTOS = () => {
-    window.open("/terms-and-conditions", "_blank");
-  };
+  // const handleNavigateTOS = () => {
+  //   window.open("/terms-and-conditions", "_blank");
+  // };
   return (
     <>
       {/* <Script
@@ -129,7 +140,11 @@ const ContactUsComponent: React.FC = () => {
         onLoad={() => {
           setLmLoaded(true);
           if (typeof window !== "undefined" && window.lm_intake) {
-            window.lm_intake("f208c22c-ca45-4bb1-88b9-ac50b25cd48e", {}, "lm-embedded-script");
+            window.lm_intake(
+              "f208c22c-ca45-4bb1-88b9-ac50b25cd48e",
+              {},
+              "lm-embedded-script"
+            );
           }
         }}
       />
@@ -142,10 +157,26 @@ const ContactUsComponent: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between gap-8">
             <div className="mt-10 lg:mt-20 flex flex-col gap-6 lg:gap-8 w-full lg:w-[40%]">
               <h3 className="text-white text-2xl lg:text-4xl font-bold">
-                CONTACT
+                {/* CONTACT */}
+                {contactInfo?.title}
               </h3>
               <div className="font-body flex flex-col gap-4 lg:gap-6 cursor-pointer">
-                <div className="flex items-center gap-4">
+                {parsedItems?.map((details: any, index: number) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <img
+                      src={`${apiPath}/storage/${details?.image}`}
+                      alt="contact image"
+                      className="h-6 w-6"
+                    />
+                    <Link
+                      href={details?.url || '#'}
+                      className=" font-sans text-white leading[28px]"
+                    >
+                      {details?.text}
+                    </Link>
+                  </div>
+                ))}
+                {/* <div className="flex items-center gap-4">
                   <LocationIcon />
                   <span className=" font-sans text-white leading[28px]">
                     San Francisco Bay Area, California
@@ -186,7 +217,7 @@ const ContactUsComponent: React.FC = () => {
                   >
                     Register for a Virtual Book Event
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -312,13 +343,18 @@ const ContactUsComponent: React.FC = () => {
                       htmlFor="agree"
                       className="font-sans  text-white text-sm lg:text-base font-normal ml-4 mt-[1px]"
                     >
-                      I agree with all the{" "}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: contactInfo?.description,
+                        }}
+                      />
+                      {/* I agree with all the{" "}
                       <span
                         className="underline cursor-pointer"
                         onClick={handleNavigateTOS}
                       >
                         terms and conditions
-                      </span>
+                      </span> */}
                     </label>
                   </div>
                   {errors.terms && (

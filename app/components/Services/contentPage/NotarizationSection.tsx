@@ -82,9 +82,11 @@ export default async function NotarizationSection({ section }: any) {
                   <Link
                     href={
                       index === 0
-                        ? "mailto:contact@empowering.legal"
+                        // ? "mailto:contact@empowering.legal"
+                        ? item?.url
                         : index === 2
-                        ? "https://sellyourstartup.com/"
+                        // ? "https://sellyourstartup.com/"
+                        ? item?.url
                         : "#"
                     }
                     className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3"
