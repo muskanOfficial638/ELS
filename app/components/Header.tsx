@@ -17,9 +17,10 @@ import { usePathname } from "next/navigation";
 import { apiPath } from "../utils/api-path";
 // import { logCustomEvent } from "../utils/firebase";
 
-const Header = ({ headerData, headerLogo }: any) => {
+const Header = ({ headerData, headerContent }: any) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  
   // const handleNavigate = () => {
   //   window.open(
   //     "https://app.lawmatics.com/forms/share/1deea1d5-aaf5-4485-bf02-edb7958361ee",
@@ -55,14 +56,16 @@ const Header = ({ headerData, headerLogo }: any) => {
 
         <div className="flex gap-3">
           <a
-            href="https://www.facebook.com/empoweringlegalsolutions"
+            href={headerContent?.facebook_url}
+            // href="https://www.facebook.com/empoweringlegalsolutions"
             target="_blank"
             className="bg-white rounded-full w-8 h-8 duration-400 relative group hover:bg-[#45B29A]"
           >
             <FaFacebookF className="w-4 h-4 text-[#0B2B66] duration-400 group-hover:text-white absolute inset-0 m-auto" />
           </a>
           <a
-            href="https://bsky.app/profile/empowerlegalnow.bsky.social"
+            href={headerContent?.bsky_url}
+            // href="https://bsky.app/profile/empowerlegalnow.bsky.social"
             target="_blank"
             className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
           >
@@ -78,14 +81,16 @@ const Header = ({ headerData, headerLogo }: any) => {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/company/empoweringlegalsolutions"
+            href={headerContent?.linkedin_url}
+            // href="https://www.linkedin.com/company/empoweringlegalsolutions"
             target="_blank"
             className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A] cursor-pointer"
           >
             <FaLinkedinIn className="w-4 h-4 duration-400 text-[#0B2B66] group-hover:text-white absolute inset-0 m-auto" />
           </a>
           <a
-            href="https://www.instagram.com/empowering.legal"
+            href={headerContent?.instagram_url}
+            // href="https://www.instagram.com/empowering.legal"
             target="_blank"
             className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
           >
@@ -99,7 +104,7 @@ const Header = ({ headerData, headerLogo }: any) => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src={`${apiPath}/storage/${headerLogo}`}
+            src={`${apiPath}/storage/${headerContent?.main_logo}`}
             width={400}
             height={100}
             alt="Empowering Legal Solutions"

@@ -45,7 +45,12 @@ export default async function RootLayout({
       <head>
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href={`${apiPath}/storage/${globalSettingData[0]?.favicon}`} type="image/x-icon" sizes="16x16"/>
+        <link
+          rel="icon"
+          href={`${apiPath}/storage/${globalSettingData[0]?.favicon}`}
+          type="image/x-icon"
+          sizes="16x16"
+        />
         {/* Merriweather Font */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
@@ -65,9 +70,15 @@ export default async function RootLayout({
         <GtmNoScript
           googleTagManager={globalSettingData[0]?.google_tag_manager}
         />
-        <Header headerData={await fetchMenusByName('header')} headerLogo={globalSettingData[0]?.main_logo}/>
+        <Header
+          headerData={await fetchMenusByName("header")}
+          headerContent={globalSettingData[0]}
+        />
         <main>{children}</main>
-        <Footer footerData={await fetchMenusByName('footer')} footerContent={globalSettingData[0]}/>
+        <Footer
+          footerData={await fetchMenusByName("footer")}
+          footerContent={globalSettingData[0]}
+        />
 
         {/* Voiceflow Chatbot Script */}
         <Script id="voiceflow-chat" strategy="afterInteractive">
