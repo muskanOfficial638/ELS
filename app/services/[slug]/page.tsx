@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const dynamic = "force-dynamic";
-import BuildSomething from "@/app/components/Services/contentPage/BuildSomething";
+// import BuildSomething from "@/app/components/Services/contentPage/BuildSomething";
 import CaseInquirySection from "@/app/components/Services/contentPage/CaseInquirySection";
-import FractionalGeneral from "@/app/components/Services/contentPage/FractionalGeneral";
-import LegalStructure from "@/app/components/Services/contentPage/LegalStructure";
+// import FractionalGeneral from "@/app/components/Services/contentPage/FractionalGeneral";
+// import LegalStructure from "@/app/components/Services/contentPage/LegalStructure";
 // import FaqSection from "@/app/components/Services/contentPage/FAQSection";
 import NotarizationSection from "@/app/components/Services/contentPage/NotarizationSection";
 import ServiceHeroSection from "@/app/components/Services/contentPage/ServiceHeroSection";
@@ -81,10 +81,10 @@ export default async function ServicePage(context: {
         title={serviceData[0]?.title}
       />
       <NotarizationSection section={processedSections[0]} />
-      <CaseInquirySection section={processedSections[1]} />
-      <LegalStructure section={processedSections[2]} />
+      <CaseInquirySection allServiceData={processedSections}/>
+      {/* <LegalStructure section={processedSections[2]} />
       <FractionalGeneral section={processedSections[3]} />
-      <BuildSomething section={processedSections[4]} />
+      <BuildSomething section={processedSections[4]} /> */}
       {/* <FaqSection /> */}
     </>
   );

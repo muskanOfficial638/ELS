@@ -9,7 +9,7 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
+import { HiOutlineMail, HiPhone } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 import Image from "next/image";
@@ -20,7 +20,9 @@ import { apiPath } from "../utils/api-path";
 const Header = ({ headerData, headerContent }: any) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  
+
+  // console.log("headerContent", headerContent);
+
   // const handleNavigate = () => {
   //   window.open(
   //     "https://app.lawmatics.com/forms/share/1deea1d5-aaf5-4485-bf02-edb7958361ee",
@@ -46,13 +48,27 @@ const Header = ({ headerData, headerContent }: any) => {
     <header className="w-full md:sticky top-0 z-100">
       {/* Top Blue Bar */}
       <div className="bg-[#0D2D63] text-white md:px-[5rem] sm:px-8 px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 z-50">
-        <Link
-          href={"mailto:contact@empowering.legal"}
+        <div className="flex gap-8">
+          <Link
+          href={`mailto:${headerContent?.header_email || "#"}`}
           className="flex hover:text-[#45B29A] duration-400 items-center gap-2"
         >
           <HiOutlineMail className="text-lg" />
-          <span className="font-sans">contact@empowering.legal</span>
+          <span className="font-sans">
+            {headerContent?.header_email || ""}
+            {/* contact@empowering.legal */}
+          </span>
         </Link>
+
+        <Link
+          href={`tel:${headerContent?.header_phone || "#"}`}
+          className="flex hover:text-[#45B29A] gap-2 mt-1"
+        >
+          <HiPhone className="text-md" />
+          <span className="font-sans text-sm">{headerContent?.header_phone || ""}</span>
+        </Link>
+        </div>
+        
 
         <div className="flex gap-3">
           <a

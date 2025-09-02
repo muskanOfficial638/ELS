@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from "react";
 import HeroSection from "./components/Home/HeroSection";
 import About from "./components/Home/About";
 import CorporateSection from "./components/Home/CorporateSection";
@@ -11,13 +10,13 @@ import News from "./components/News";
 import Script from "next/script";
 import ComparisonTable from "./components/Home/comparisonTable";
 import { Metadata } from "next";
-import { fetchCmsPagesBySlug } from "./utils/api";
+import { fetchCmsPagesBySlug, fetchSliders, fetchTestimonials } from "./utils/api";
 import { apiPath, frontPath, canonicalPath } from "./utils/api-path";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const homePageData = await fetchCmsPagesBySlug("home");
 
-  return {
+  return { 
     title: homePageData?.meta_title,
     // "Empowering Legal Solutions | Your Dedicated Legal and Business Counsel",
     description: homePageData?.meta_description,
@@ -51,25 +50,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-const Home: React.FC = () => {
-  // const [data, setData] = useState({} as any);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(`${apiPath}/api/cms-pages/home-page`);
-  //       const data = await response.json();
-  //       setData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching Google Sheet data:", error);
-  //     } finally {
-  //       // setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // useEffect(() => {console.log("data",data)}, [data]);
+const Home: React.FC = async () => {
+  const testimonials = await fetchTestimonials();
+  const sliders = await fetchSliders();
+  const homePageData = await fetchCmsPagesBySlug("home");
 
   return (
     <>
@@ -101,19 +85,18 @@ const Home: React.FC = () => {
           }),
         }}
       />
-      <HeroSection />
-      <About />
+      <HeroSection sliderData={sliders} />
+      <About homeAboutData={homePageData?.content}/>
       <ComparisonTable />
       <CorporateSection />
       {/* <LegalRepresentation /> */}
       {/* <ELS /> */}
       <MenuSection />
-      {/* {data?.content?.[0] && <About data={data.content[0]} />} */}
       {/* {data?.content?.[1] && <CorporateSection data={data.content[1]} />} */}
       {/* {data?.content?.[2] && <LegalRepresentation data={data.content[2]} />} */}
       {/* {data?.content?.[3] && <ELS data={data.content[3]} />} */}
       {/* // {data?.content?.[4] && <MenuSection data={data.content[4]} />} */}
-      <Testimonials />
+      <Testimonials testimonials={testimonials}/>
       <Consultation />
       <News />
     </>
