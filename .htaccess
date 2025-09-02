@@ -1,0 +1,36 @@
+# Disable DirectoryIndex to prevent default file serving
+DirectoryIndex disabled
+
+RewriteEngine On
+
+# Serve static files from the /_next/static directory directly
+RewriteCond %{REQUEST_URI} ^/_next/static/ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Serve favicon.ico directly
+RewriteCond %{REQUEST_URI} ^/favicon.ico$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Proxy to Node.js application on localhost:3001
+RewriteCond %{REQUEST_URI} !^/_next/static/ [NC]
+RewriteRule ^(.*)$ http://localhost:3001/$1 [P,L]
+
+# Enable HTTP/1.1 support
+SetEnv proxy-nokeepalive 1
+SetEnv proxy-sendcl 1
+SetEnv proxy-sendchunked 1
+
+# Proxy Headers to preserve the original protocol and client info
+RequestHeader set X-Forwarded-Proto "https"
+RequestHeader set X-Forwarded-For %{REMOTE_ADDR}s
+RequestHeader set X-Real-IP %{REMOTE_ADDR}s
+RequestHeader set Host %{HTTP_HOST}s
+
+# Connection upgrade for websockets (for real-time apps)
+RewriteCond %{HTTP:Upgrade} =websocket [NC]
+RewriteRule / http://localhost:3001 [P,L]
+
+# Proxy the rest of the traffic to port 3001
+RewriteRule ^(.*)$ http://localhost:3001/$1 [P,L]

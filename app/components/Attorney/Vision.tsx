@@ -9,7 +9,7 @@ const Vision: React.FC = () => {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
         <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2">
           <h2 className="font-body relative self-stretch font-bold text-[#052b64] text-xl sm:text-[32px]  leading-[36px] sm:leading-[48px]">
-            Sayeda&apos;s vision
+            Syeda&apos;s vision
           </h2>
           <p className="font-sans relative self-stretch text-black leading-[28px]">
             Driven by a passion for making high-impact corporate legal advice
