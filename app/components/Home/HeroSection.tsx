@@ -13,7 +13,8 @@ interface Props {
 const HeroSection: React.FC<Props> = ({ sliderData }) => {
   //For desktop title
   const insertLineBreaks = (text: string, wordsPerLine = 5) => {
-    const words = text.split(" ");
+    if (!text) return [];
+    const words = text?.split(" ");
     return words
       .reduce((acc: any, word: string, index: number) => {
         const isBreak = (index + 1) % wordsPerLine === 0;
@@ -29,7 +30,7 @@ const HeroSection: React.FC<Props> = ({ sliderData }) => {
     if (!title) return [];
 
     // Customize this split to match the correct groupings
-    const words = title.split(" ");
+    const words = title?.split(" ");
     return [
       words.slice(0, 2).join(" "), // Empowering You
       words.slice(2, 5).join(" "), // and Your Business
@@ -98,15 +99,15 @@ const HeroSection: React.FC<Props> = ({ sliderData }) => {
               {/* Ready to Build or Scale Your Legal Foundation? */}
               {heroData?.content || ""}
             </p>
-            <button className="cursor-pointer font-sans text-[18px] font-[600] duration-400 mt-6 px-[32px] py-[16px] bg-white hover:bg-[#0D2D63] hover:text-white text-[#0D2D63] rounded-full text-sm sm:text-base">
-              {/* Consult Now */}
-              <Link
-                href={heroData?.button_url ? heroData?.button_url : "#"}
-                target="_blank"
-              >
+            <Link
+              href={heroData?.button_url ? heroData?.button_url : "#"}
+              target="_blank"
+            >
+              <button className="cursor-pointer font-sans text-[18px] font-[600] duration-400 mt-6 px-[32px] py-[16px] bg-white hover:bg-[#0D2D63] hover:text-white text-[#0D2D63] rounded-full text-sm sm:text-base">
+                {/* Consult Now */}
                 {heroData?.button_text || ""}
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </section>
       ))}

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { fetchServices } from "@/app/utils/api";
+import { apiPath } from "@/app/utils/api-path";
 import Link from "next/link";
 import React from "react";
 // import { RowOneCards, RowTwoCards } from "../../utils/services-cards-data";
@@ -14,6 +15,16 @@ const Cards = async () => {
           let parsedSections = [];
           try {
             parsedSections = JSON.parse(card.sections);
+            // Replace image src paths in all sections' descriptions
+            parsedSections?.map((section: any) => {
+              if (section?.description) {
+                section.description = section.description.replace(
+                  /src="\/storage/g,
+                  `src="${apiPath}/storage`
+                ); 
+              }
+              return section;
+            });
           } catch (error) {
             console.error("Failed to parse card.sections", error);
           }

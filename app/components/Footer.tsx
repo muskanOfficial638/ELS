@@ -1,7 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
 // import { MdLocationOn, MdEmail } from "react-icons/md";
 // import { FaGlobe } from "react-icons/fa6";
 
@@ -27,7 +33,9 @@ const Footer = async ({ footerData, footerContent }: any) => {
             className="mb-4 w-[131px] h-[95px] object-cover"
           />
           <div
-            dangerouslySetInnerHTML={{ __html: footerContent?.about_text }}
+            dangerouslySetInnerHTML={{
+              __html: footerContent?.about_text || "<p> Add content !</p>",
+            }}
           />
           {/* <p className="font-sans leading[28px] text-white">
             A law firm that is built to help you navigate and win at corporate
@@ -44,7 +52,7 @@ const Footer = async ({ footerData, footerContent }: any) => {
             {footerData?.data?.map((menu: any) => (
               <li key={menu?.id}>
                 <Link
-                  href={menu?.url}
+                  href={menu?.url || "#"}
                   target={menu?.target}
                   className="hover:text-[#45B29A] duration-400"
                 >
@@ -61,49 +69,81 @@ const Footer = async ({ footerData, footerContent }: any) => {
             Connect with Us
           </h3>
           <div className="flex gap-4 mb-[18px]">
-            <a
-              // href="https://www.facebook.com/empoweringlegalsolutions"
-              href={footerContent?.facebook_url}
-              target="_blank"
-              className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
-            >
-              <FaFacebookF className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
-            </a>
-            <a
-              // href="https://bsky.app/profile/empowerlegalnow.bsky.social"
-              href={footerContent?.bsky_url}
-              target="_blank"
-              className="bg-white rounded-full w-8 h-8  duration-400 relative group hover:bg-[#45B29A]"
-            >
-              <svg
-                width="13"
-                height="11"
-                viewBox="0 0 13 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 fill-[#0D2D63]  duration-400 group-hover:fill-white absolute inset-0 m-auto"
+            {footerContent?.youtube_url && (
+              <a
+                href={footerContent?.youtube_url}
+                target="_blank"
+                className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
               >
-                <path
-                  d="M3.14198 0.97953C4.51073 2.00375 5.9826 4.085 6.52167 5.20297C7.06073 4.08734 8.53261 2.00609 9.90136 0.97953C10.8881 0.238905 12.4865 -0.33297 12.4865 1.49047C12.4865 1.85375 12.2779 4.54906 12.156 4.98734C11.7295 6.50609 10.1779 6.89515 8.79745 6.65844C11.2092 7.06859 11.8232 8.42797 10.4967 9.78734C7.97948 12.3702 6.88026 9.14047 6.59901 8.31312C6.55917 8.19828 6.53807 8.13031 6.52167 8.13031C6.50526 8.13031 6.48417 8.20062 6.44432 8.31312C6.16307 9.14047 5.06151 12.3702 2.54667 9.78734C1.22245 8.42797 1.83417 7.06859 4.24589 6.65844C2.86542 6.89515 1.31385 6.50609 0.889636 4.985C0.765417 4.54672 0.556824 1.8514 0.556824 1.48812C0.556824 -0.335314 2.15526 0.236561 3.14198 0.977186V0.97953Z"
-                  // fill="#0D2D63"
-                />
-              </svg>
-            </a>
-            <a
-              // href="https://www.linkedin.com/company/empoweringlegalsolutions"
-              href={footerContent?.linkedin_url}
-              target="_blank"
-              className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A] cursor-pointer"
-            >
-              <FaLinkedinIn className="w-4 h-4 text-[#0B2B66]  duration-400 duration-400 group-hover:text-white absolute inset-0 m-auto" />
-            </a>
-            <a
-              // href="https://www.instagram.com/empowering.legal"
-              href={footerContent?.instagram_url}
-              className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
-            >
-              <FaInstagram className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
-            </a>
+                <FaYoutube className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
+              </a>
+            )}
+
+            {footerContent?.twitter_url && (
+              <a
+                href={footerContent?.twitter_url}
+                target="_blank"
+                className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
+              >
+                <FaTwitter className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
+              </a>
+            )}
+
+            {footerContent?.facebook_url && (
+              <a
+                // href="https://www.facebook.com/empoweringlegalsolutions"
+                href={footerContent?.facebook_url}
+                target="_blank"
+                className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
+              >
+                <FaFacebookF className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
+              </a>
+            )}
+
+            {footerContent?.bsky_url && (
+              <a
+                // href="https://bsky.app/profile/empowerlegalnow.bsky.social"
+                href={footerContent?.bsky_url}
+                target="_blank"
+                className="bg-white rounded-full w-8 h-8  duration-400 relative group hover:bg-[#45B29A]"
+              >
+                <svg
+                  width="13"
+                  height="11"
+                  viewBox="0 0 13 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 fill-[#0D2D63]  duration-400 group-hover:fill-white absolute inset-0 m-auto"
+                >
+                  <path
+                    d="M3.14198 0.97953C4.51073 2.00375 5.9826 4.085 6.52167 5.20297C7.06073 4.08734 8.53261 2.00609 9.90136 0.97953C10.8881 0.238905 12.4865 -0.33297 12.4865 1.49047C12.4865 1.85375 12.2779 4.54906 12.156 4.98734C11.7295 6.50609 10.1779 6.89515 8.79745 6.65844C11.2092 7.06859 11.8232 8.42797 10.4967 9.78734C7.97948 12.3702 6.88026 9.14047 6.59901 8.31312C6.55917 8.19828 6.53807 8.13031 6.52167 8.13031C6.50526 8.13031 6.48417 8.20062 6.44432 8.31312C6.16307 9.14047 5.06151 12.3702 2.54667 9.78734C1.22245 8.42797 1.83417 7.06859 4.24589 6.65844C2.86542 6.89515 1.31385 6.50609 0.889636 4.985C0.765417 4.54672 0.556824 1.8514 0.556824 1.48812C0.556824 -0.335314 2.15526 0.236561 3.14198 0.977186V0.97953Z"
+                    // fill="#0D2D63"
+                  />
+                </svg>
+              </a>
+            )}
+
+            {footerContent?.linkedin_url && (
+              <a
+                // href="https://www.linkedin.com/company/empoweringlegalsolutions"
+                href={footerContent?.linkedin_url}
+                target="_blank"
+                className="bg-white rounded-full w-8 h-8 relative group hover:bg-[#45B29A] cursor-pointer"
+              >
+                <FaLinkedinIn className="w-4 h-4 text-[#0B2B66]  duration-400 duration-400 group-hover:text-white absolute inset-0 m-auto" />
+              </a>
+            )}
+
+            {footerContent?.instagram_url && (
+              <a
+                // href="https://www.instagram.com/empowering.legal"
+                href={footerContent?.instagram_url}
+                className="bg-white rounded-full duration-400 w-8 h-8 relative group hover:bg-[#45B29A]"
+              >
+                <FaInstagram className="w-4 h-4 text-[#0B2B66]  duration-400 group-hover:text-white absolute inset-0 m-auto" />
+              </a>
+            )}
+            
           </div>
           <div
             className="font-sans leading[28px]"
