@@ -86,39 +86,29 @@ export default async function NotarizationSection({ section }: any) {
             <div className="space-y-4">
               {parsedItems?.map((item: any, index: number) => (
                 <div key={index}>
-                  {index === 1 ? (
-                    // No link for second item
-                    <div className="flex text-left text-black items-center gap-3">
-                      <img
-                        src={`${apiPath}/storage/${item?.image}`}
-                        alt="schedule image"
-                        className="h-6 w-6"
-                      />
-                      <div className="font-sans text-[18px]">{item?.text}</div>
-                    </div>
-                  ) : (
-                    // Link for first and third items
-                    <Link
-                      href={
-                        index === 0
-                          ? // ? "mailto:contact@empowering.legal"
-                            item?.url
-                          : index === 2
-                          ? // ? "https://sellyourstartup.com/"
-                            item?.url
-                          : "#"
-                      }
-                      className="flex text-left text-black duration-400 hover:text-[#45B29A] items-center gap-3"
-                    >
-                      <img
-                        src={`${apiPath}/storage/${item?.image}`}
-                        alt="schedule image"
-                        className="h-6 w-6"
-                      />
-                      <div className="font-sans text-[18px]">{item?.text}</div>
-                    </Link>
+                  <div className="flex text-left text-black items-center gap-3">
+                    <img
+                      src={`${apiPath}/storage/${item?.image}`}
+                      alt="schedule image"
+                      className="h-6 w-6"
+                    />
+                    {index !== 1 && (
+                      <Link
+                        href={item.url}
+                        className="font-sans text-[18px] hover:text-[#45B29A]"
+                      >
+                        {item?.text}
+                      </Link>
+                    )}
+                    {index == 1 && (
+                      <div className="font-sans text-[18px] hover:text-[#45B29A]">
+                        {item?.text}
+                      </div>
+                    )}
+                  </div>
+                  {index !== parsedItems?.length-1 && (
+                    <hr className="border-gray-200 mt-4" />
                   )}
-                  {index !== 2 && <hr className="border-gray-200 mt-4" />}
                 </div>
               ))}
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import HeroSection from "./components/Home/HeroSection";
 import About from "./components/Home/About";
 import CorporateSection from "./components/Home/CorporateSection";
@@ -55,6 +56,17 @@ const Home: React.FC = async () => {
   const sliders = await fetchSliders();
   const homePageData = await fetchCmsPagesBySlug("home");
 
+// Replace image src paths in all sections' descriptions
+  const processedSections = homePageData?.content?.map((section: any) => {
+    if (section?.page_content) {
+      section.page_content = section.page_content.replace(
+        /src="\/storage/g,
+        `src="${apiPath}/storage`
+      );
+    }
+    return section;
+  });
+
   return (
     <>
       {/* Json LD schema */}
@@ -86,7 +98,7 @@ const Home: React.FC = async () => {
         }}
       />
       <HeroSection sliderData={sliders} />
-      <About homeAboutData={homePageData?.content}/>
+      <About homeAboutData={processedSections}/>
       <ComparisonTable />
       <CorporateSection />
       {/* <LegalRepresentation /> */}
