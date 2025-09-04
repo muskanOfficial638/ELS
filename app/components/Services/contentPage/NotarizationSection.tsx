@@ -106,7 +106,7 @@ export default async function NotarizationSection({ section }: any) {
                       </div>
                     )}
                   </div>
-                  {index !== parsedItems?.length-1 && (
+                  {index !== parsedItems?.length - 1 && (
                     <hr className="border-gray-200 mt-4" />
                   )}
                 </div>
@@ -142,13 +142,14 @@ export default async function NotarizationSection({ section }: any) {
               </div>
             </Link>
           </div> */}
-
-            <div
-              className="mt-[30px] leading-[28px] text-black text-left font-sans"
-              dangerouslySetInnerHTML={{
-                __html: scheduleData[0]?.description || "<p> Add content !</p>",
-              }}
-            />
+            {scheduleData[0]?.description && (
+              <div
+                className="mt-[30px] leading-[28px] text-black text-left font-sans"
+                dangerouslySetInnerHTML={{
+                  __html: scheduleData[0]?.description,
+                }}
+              />
+            )}
           </div>
         </div>
       </section>
