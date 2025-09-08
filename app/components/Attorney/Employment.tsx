@@ -6,18 +6,7 @@ const Employment: React.FC = () => {
   return (
     <section className="md:pt-16 px-4">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
-        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 p-4 shadow-xl text-center">
-          <Image
-            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-cover"
-            alt="Frame"
-            src={"/attorney-3.jpg"}
-            // src={`${apiPath}${imageUrl}`}
-            // src={Author3}
-            width={1000}
-            height={500}
-          />
-        </div>
-        <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2">
+        <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6">
           <h2 className="font-body relative self-stretch font-bold text-[#0D2D63] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
             Work Experience
           </h2>
@@ -62,6 +51,17 @@ const Employment: React.FC = () => {
               Syeda Nazifa Nawroj # 320124 - Attorney Licensee Search
             </a>
           </p>
+        </div>
+        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 text-center">
+          <Image
+            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[300px] h-[200px] md:mt-6 mt-0 object-cover"
+            alt="Frame"
+            src={"/attorney-3.jpg"}
+            // src={`${apiPath}${imageUrl}`}
+            // src={Author3}
+            width={1000}
+            height={500}
+          />
         </div>
       </div>
     </section>

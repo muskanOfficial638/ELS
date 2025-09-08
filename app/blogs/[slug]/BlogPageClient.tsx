@@ -13,7 +13,7 @@ type BlogPost = {
   created_at: Date | any;
   feature_image: string;
   body: any;
-  author?: string;
+  author_name?: string;
   categories?: [{ id: string; name: string }];
 };
 
@@ -79,7 +79,7 @@ export default function BlogPageClient({ slug }: { slug: string }) {
       <h1 className="text-4xl font-bold mb-4">{blogData?.title}</h1>
 
       <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
-        <span>By {blogData?.author || "Sayeda"}</span>
+        <span>By {blogData?.author_name || "Sayeda"}</span>
         <span>•</span>
         <span>{new Date(blogData?.created_at).toLocaleDateString()}</span>
       </div>

@@ -163,7 +163,7 @@ const Header = ({ headerData, headerContent }: any) => {
               width={400}
               height={100}
               alt="Empowering Legal Solutions"
-              className="w-[148px] h-[108px] object-cover"
+              className="w-[148px] h-[118px] object-cover"
             />
           </Link>
         )}

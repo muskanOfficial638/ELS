@@ -51,7 +51,7 @@ export default function ComparisonTable() {
               ].map((item, idx) => (
                 <div key={idx} className="px-6 py-5 bg-gray-50 text-left mt-4">
                   <p className="font-semibold text-[#0D2D63]">{item.title}</p>
-                  <p className="mt-1">{item.description}</p>
+                  <p className="mt-1 text-black">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -99,7 +99,7 @@ export default function ComparisonTable() {
                     className="px-6 py-5 bg-gray-50 text-left mt-4 border-b border-[#56B3B1]"
                   >
                     <p className="font-semibold text-[#0D2D63]">{item.title}</p>
-                    <p className="mt-1 font-sans leading-[28px]">{item.description}</p>
+                    <p className="mt-1 font-sans leading-[28px] text-black">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -119,7 +119,7 @@ export default function ComparisonTable() {
               {/* List each point */}
               <div className="bg-gray-50 px-6 py-5 text-left border-b border-gray-200">
                 <p className="font-semibold text-[#0D2D63]">OUTDATED BILLING</p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Unpredictable hourly rates lead to surprise bills and budget
                   overruns.
                 </p>
@@ -128,7 +128,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   DISCONNECTED ADVICE
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   One-size-fits-all counsel, often lacking a deep understanding
                   of your business operations.
                   <br />
@@ -138,7 +138,7 @@ export default function ComparisonTable() {
               </div>
               <div className="bg-gray-50 px-6 py-5 text-left border-b border-gray-200">
                 <p className="font-semibold text-[#0D2D63]">FIXED OVERHEAD</p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Paying for permanent staff or expensive office space,
                   regardless of your immediate needs.
                 </p>
@@ -147,7 +147,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   RISK-AVERSE COUNSEL
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Advice that prioritizes caution, potentially slowing
                   innovation and growth.
                   <br />
@@ -158,7 +158,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   GATEKEEPERS OF LEGAL KNOWLEDGE
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Lawyers hold the power, and clients often feel lost in the
                   process.
                   <br />
@@ -169,7 +169,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   TECH-RESISTANT PRACTICES
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Slow, manual processes and legacy systems that are slow to
                   learn about and adopt new technology, delays transactions and
                   inflates costs
@@ -189,7 +189,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   TRANSPARENT VALUE
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Know your costs upfront with flexible pricing that aligns with
                   your business goals. That&apos;s refreshing.
                 </p>
@@ -198,7 +198,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   STRATEGIC PARTNERSHIP
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Beyond counsel, we integrate as part of your team,
                   understanding your business objectives. We safeguard your
                   operations by anticipating legal risks and ensuring adherence
@@ -209,7 +209,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   ELITE LEGAL TALENT, ON-DEMAND
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Access top-tier legal talent and specialists precisely when
                   and where your projects demand it.
                 </p>
@@ -218,7 +218,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   CONFIDENT ADVANCEMENT
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   Our counsel empowers you to navigate challenges, seize
                   opportunities, and move forward with confidence and
                   compliance.
@@ -228,7 +228,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   EMPOWERED CLIENTS
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   We demystify the law. Through automation, plain language, and
                   education, we help clients make confident, informed decisions.
                 </p>
@@ -237,7 +237,7 @@ export default function ComparisonTable() {
                 <p className="font-semibold text-[#0D2D63]">
                   SMART USE OF TECHNOLOGY
                 </p>
-                <p className="mt-1 font-sans leading-[28px]">
+                <p className="mt-1 font-sans leading-[28px] text-black">
                   We leverage a proprietary tech stack and premium legal tools
                   to execute transactions efficiently and accurately raising the
                   bar for modern legal services.

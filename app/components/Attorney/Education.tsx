@@ -22,9 +22,9 @@ const Education: React.FC = () => {
             <span>Awarded a full scholarship</span>
           </p>
         </div>
-        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 p-4 shadow-xl text-center">
+        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 text-center">
           <Image
-            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-cover"
+            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[300px] h-[200px] md:mt-6 mt-0 object-cover"
             alt="Frame"
             src={"/attorney-2.jpg"}
             // src={Author2}

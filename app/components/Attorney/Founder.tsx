@@ -1,35 +1,8 @@
 "use client";
-// import React, { useEffect, useState } from "react";
-// import { Author } from "../../assets";
 import Image from "next/image";
-// import { apiPath } from "@/app/utils/api-path";
 
-// const Founder: React.FC = ({ data }: any) => {
 const Founder: React.FC = () => {
-  // const [textHtml, setTextHtml] = useState("");
-  // const [imageUrl, setImageUrl] = useState("");
-
-  // useEffect(() => {
-  //   const rawHtml = data?.page_content || "";
-
-  //   // Parse the HTML string to a DOM structure
-  //   const parser = new DOMParser();
-  //   const doc = parser.parseFromString(rawHtml, "text/html");
-
-  //   // Extract image URL from <img> tag
-  //   const imgElement = doc.querySelector("img");
-  //   const imgSrc = imgElement?.getAttribute("src") || "";
-
-  //   // Remove the column containing the image
-  //   imgElement?.closest(".filament-tiptap-grid-builder__column")?.remove();
-
-  //   // Remaining HTML is the text section
-  //   const textContent = doc.body.innerHTML;
-  //   // Update state
-  //   setImageUrl(imgSrc);
-  //   setTextHtml(textContent);
-  // }, [data]);
-
+  
   return (
     <section className="md:pt-16 px-4">
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
@@ -52,7 +25,7 @@ const Founder: React.FC = () => {
         </div>
         <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 p-4 shadow-xl text-center">
           <Image
-            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-cover"
+            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[300px] h-[200px] md:mt-6 mt-0 object-cover"
             alt="Frame"
             src={"/attorney-1.jpg"}
             // src={Author}

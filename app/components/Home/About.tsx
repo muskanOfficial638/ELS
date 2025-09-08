@@ -38,21 +38,28 @@ const About: React.FC<legalSectionProps> = ({ homeAboutData }) => {
                 {/* Why Choose Empowering Legal Solutions? */}
                 {aboutData?.heading || ""}
               </h2>
-              <p className="font-body relative self-stretch font-normal text-black text-base sm:text-xl leading-6 sm:leading-[30px]">
-                {/* A law firm that is built to help you navigate and win at corporate
+
+              {aboutData?.subheading && (
+                <p className="font-body relative self-stretch font-normal text-black text-base sm:text-xl leading-6 sm:leading-[30px]">
+                  {/* A law firm that is built to help you navigate and win at corporate
               transactions. */}
-                {aboutData?.subheading || ""}
-              </p>
-              <div
-                className={`font-body relative self-stretch font-normal font-sans text-black leading-[28px] ${
-                  !expanded ? "line-clamp-3" : ""
-                }`}
-                dangerouslySetInnerHTML={{
-                  __html: aboutData?.page_content || "<p> Add content !</p>",
-                }}
-              >
-                {/* {text} */}
-              </div>
+                  {aboutData?.subheading || ""}
+                </p>
+              )}
+
+              {aboutData?.page_content && (
+                <div
+                  className={`font-body relative self-stretch font-normal font-sans text-black leading-[28px] ${
+                    !expanded ? "line-clamp-3" : ""
+                  }`}
+                  dangerouslySetInnerHTML={{
+                    __html: aboutData?.page_content,
+                  }}
+                >
+                  {/* {text} */}
+                </div>
+              )}
+
               <button
                 className=" text-[#0B2B66] font-[600] font-sans text-center md:text-left lg:text-left cursor-pointer"
                 onClick={() => setExpanded(!expanded)}
