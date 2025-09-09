@@ -2,11 +2,10 @@
 import Image from "next/image";
 
 const Founder: React.FC = () => {
-  
   return (
-    <section className="md:pt-16 px-4">
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0">
-        <div className="text-center md:text-left flex flex-col md:w-[60%] gap-4 sm:gap-6 order-2 md:order-1 lg:order-1">
+    <section className="md:pt-16">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-6 sm:px-[90px] pb-10 sm:pb-0">
+        <div className="sm:gap-6 order-2 md:order-1 lg:order-1 w-[60%]">
           <h2 className="font-body relative self-stretch font-bold text-[#052b64] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
             About
           </h2>
@@ -23,9 +22,9 @@ const Founder: React.FC = () => {
             transaction value nearing $3 billion prior to founding ELS.
           </p>
         </div>
-        <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 p-4 shadow-xl text-center">
+        <div className="mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2 p-4 shadow-xl text-center">
           <Image
-            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[300px] h-[200px] md:mt-6 mt-0 object-cover"
+            className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[250px] h-[150px] md:mt-6 mt-0 object-cover"
             alt="Frame"
             src={"/attorney-1.jpg"}
             // src={Author}

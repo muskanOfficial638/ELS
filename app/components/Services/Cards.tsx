@@ -33,7 +33,7 @@ const Cards = async () => {
             <Link
               href={`services/${card?.slug}`}
               key={card?.id}
-              className="bg-[#0B2B66] block rounded-lg text-center shadow-lg p-[37px] transition-colors duration-400 group text-center hover:bg-white "
+              className="bg-[#0B2B66] block rounded-lg text-center shadow-lg p-[37px] transition-all ease-in duration-300 group text-center hover:bg-white"
             >
               <h3 className="text-white text-[20px] text-lg font-semibold mb-[12px] group-hover:text-[#0B2B66]">
                 {card?.title}

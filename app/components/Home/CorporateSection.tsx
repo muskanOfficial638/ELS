@@ -24,7 +24,7 @@ const CorporateTransaction = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {/* Card 1 */}
         <Link href={"/services/corporate-counsel-for-growing-companies"}>
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-colors duration-300 group hover:bg-[#0B2B66]">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-all ease-in duration-300 group hover:bg-[#0B2B66]">
             <div className="bg-[#0B2B66] text-white w-12 h-12 flex items-center justify-center rounded-full mb-4 group-hover:text-[#0B2B66] group-hover:bg-white">
               <FaBriefcase size={24} />
             </div>
@@ -39,7 +39,7 @@ const CorporateTransaction = () => {
 
         {/* Card 2 */}
         <Link href="/services/ma-legal-counsel-for-strategic-growth">
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center group hover:bg-[#0B2B66] transition-colors duration-300">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center group hover:bg-[#0B2B66] transition-all ease-in duration-300">
             <div className="bg-[#0B2B66] text-white w-12 h-12 flex items-center justify-center rounded-full mb-4 group-hover:text-[#0B2B66] group-hover:bg-white">
               <FaBuildingColumns size={24} />
             </div>
@@ -54,7 +54,7 @@ const CorporateTransaction = () => {
 
         {/* Card 3 */}
         <Link href="/services/protecting-innovation-and-personal-data">
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-colors duration-300 group hover:bg-[#0B2B66]">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-all ease-in duration-300 group hover:bg-[#0B2B66]">
             <div className="bg-[#0B2B66] text-white w-12 h-12 flex items-center justify-center rounded-full mb-4 group-hover:text-[#0B2B66] group-hover:bg-white">
               <FaLightbulb size={24} />
             </div>
@@ -75,7 +75,7 @@ const CorporateTransaction = () => {
             "/services/legal-guidance-for-startup-and-business-capital-raises"
           }
         >
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-colors duration-300 group hover:bg-[#0B2B66]">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-all ease-in duration-300 group hover:bg-[#0B2B66]">
             <div className="bg-[#0B2B66] text-white w-12 h-12 flex items-center justify-center rounded-full mb-4 group-hover:text-[#0B2B66] group-hover:bg-white">
               <FaHandHoldingUsd size={24} />
             </div>
@@ -90,7 +90,7 @@ const CorporateTransaction = () => {
 
         {/* Card 5 */}
         <Link href={"/services/legal-counsel-for-mission-driven-nonprofits"}>
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center group hover:bg-[#0B2B66] transition-colors duration-300">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center text-center group hover:bg-[#0B2B66] transition-all ease-in duration-300">
             <div className="bg-[#0B2B66] text-white w-12 h-12 flex items-center justify-center rounded-full mb-4 group-hover:text-[#0B2B66] group-hover:bg-white">
               <FaUsers size={24} />
             </div>
