@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { apiPath } from "@/app/utils/api-path";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,10 +11,10 @@ interface serviceProps {
 }
 
 const CTA: React.FC<serviceProps> = ({ data }) => {
-  const router = useRouter();
-  const handleNavigateContact = () => {
-    router.push("/contact-us");
-  };
+  // const router = useRouter();
+  // const handleNavigateContact = () => {
+  //   router.push("/contact-us");
+  // };
 
   const content = data?.content?.[0]?.page_content || "";
 
@@ -95,7 +95,7 @@ const CTA: React.FC<serviceProps> = ({ data }) => {
               item && (
                 <button
                   key={index}
-                  onClick={handleNavigateContact}
+                  // onClick={handleNavigateContact}
                   className="border border-black text-[18px] font-[600] font-sans  rounded-full duration-400 px-[32px] py-[16px] text-black hover:border-[#56B3B1] hover:bg-[#56B3B1] hover:text-white transition-all"
                 >
                   {item}
