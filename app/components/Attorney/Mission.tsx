@@ -10,7 +10,7 @@ const Mission: React.FC = () => {
   };
 
   return (
-    <section className="md:py-16">
+    <section className="py-16">
       {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-6 px-6 sm:px-[90px] pb-10 sm:pb-0"> */}
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-body relative self-stretch font-bold text-[#0D2D63] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">

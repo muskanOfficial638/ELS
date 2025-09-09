@@ -4,8 +4,8 @@ import Image from "next/image";
 const Founder: React.FC = () => {
   return (
     <section className="md:pt-16">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row gap-6 sm:px-[90px] pb-10 sm:pb-0">
-        <div className="sm:gap-6 order-2 md:order-1 lg:order-1 w-[60%]">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row gap-6 sm:px-[90px] pb-10 sm:pb-0">
+        <div className="sm:gap-6 order-2 md:order-1 lg:order-1 md:w-[60%]">
           <h2 className="font-body relative self-stretch font-bold text-[#052b64] text-xl sm:text-[32px] leading-[36px] sm:leading-[48px]">
             About
           </h2>

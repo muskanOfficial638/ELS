@@ -67,9 +67,9 @@ const Header = ({ headerData, headerContent }: any) => {
           {headerContent?.header_phone && (
             <Link
               href={`tel:${headerContent?.header_phone || "#"}`}
-              className="flex hover:text-[#45B29A] gap-2 mt-1"
+              className="flex hover:text-[#45B29A] gap-2 items-center mt-1"
             >
-              <HiPhone className="text-md" />
+              <HiPhone className="text-md h-[21px]" />
               <span className="font-sans text-sm">
                 {headerContent?.header_phone || ""}
               </span>
