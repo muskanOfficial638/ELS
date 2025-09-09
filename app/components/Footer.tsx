@@ -236,7 +236,7 @@ const Footer = async ({ footerData, footerContent }: any) => {
                       index === 0
                         ? "mailto:contact@empowering.legal"
                         : index === 2
-                        ? "https://sellyourstartup.com/"
+                        ? `tel:${item?.text || "#"}`
                         : "#"
                     }
                     className="flex text-left text-white duration-400 hover:text-[#45B29A] items-center gap-3"
