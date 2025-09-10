@@ -11,6 +11,7 @@ import Script from "next/script";
 import { fetchGlobalSettings, fetchMenusByName } from "./utils/api";
 import GtmNoScript from "./components/GtmNoScript";
 import { apiPath } from "./utils/api-path";
+import FacebookPixel from "./components/FacebookPixel";
 
 const libre = Libre_Baskerville({
   variable: "--font-libre",
@@ -57,10 +58,13 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
           rel="stylesheet"
         />
+
         {/*  Google Tag Manager code */}
         <Script id="google-tag-manager">
           {globalSettingData[0]?.google_analytics_code}
         </Script>
+        {/* Meta Pixel Code  */}
+        <FacebookPixel />
       </head>
 
       <body
@@ -74,7 +78,7 @@ export default async function RootLayout({
           headerData={await fetchMenusByName("header")}
           headerContent={globalSettingData[0]}
         />
-        <main>{children}</main>
+        <main className="bg-white">{children}</main>
         <Footer
           footerData={await fetchMenusByName("footer")}
           footerContent={globalSettingData[0]}

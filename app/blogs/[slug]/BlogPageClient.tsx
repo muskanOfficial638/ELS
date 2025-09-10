@@ -60,7 +60,7 @@ export default function BlogPageClient({ slug }: { slug: string }) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white">
         <Loader />;
       </div>
     );
@@ -68,15 +68,15 @@ export default function BlogPageClient({ slug }: { slug: string }) {
 
   if (!blogData) {
     return (
-      <section className="max-w-3xl mx-auto px-4 py-12 text-center">
+      <section className="max-w-3xl mx-auto px-4 py-12 text-center bg-white">
         <div className="text-red-500 text-lg">Blog post not found.</div>
       </section>
     );
   }
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold mb-4">{blogData?.title}</h1>
+    <section className="max-w-3xl mx-auto px-4 py-12 bg-white">
+      <h1 className="text-4xl font-bold mb-4 text-black">{blogData?.title}</h1>
 
       <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
         <span>By {blogData?.author_name || "Sayeda"}</span>

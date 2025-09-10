@@ -194,7 +194,7 @@ const RelatedArticles = ({
                   <a href={`/blogs/${blog?.slug}`}>{blog?.title}</a>
                 </h3>
                 <div
-                  className="font-sans leading-[28px] mb-2 line-clamp-4"
+                  className="font-sans leading-[28px] mb-2 line-clamp-4 text-black"
                   dangerouslySetInnerHTML={{ __html: blog?.body }}
                 />
                 <a

@@ -228,7 +228,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
               <div className="flex flex-col md:flex-row justify-between gap-6 mb-0 sm:mb-5">
                 <div className="flex flex-col w-full md:w-2/4 relative h-[55px]">
                   <Image
-                    className="absolute left-3 top-[45%] transform -translate-y-1/2 text-gray-500"
+                    className="absolute left-3 top-[45%] transform -translate-y-1/2"
                     src={textIcon}
                     alt="icon"
                   />
@@ -238,7 +238,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                     {...register("firstName", {
                       required: "First Name is required",
                     })}
-                    className={`w-full pl-12 pr-4 py-3 bg-white rounded-lg border ${
+                    className={`w-full pl-12 pr-4 py-3 bg-white rounded-lg border text-gray-500 ${
                       errors.firstName ? "border-red-500" : "border-gray-300"
                     } focus:outline-none`}
                   />
@@ -250,7 +250,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                 </div>
                 <div className="flex flex-col w-full md:w-2/4 relative h-[55px]">
                   <Image
-                    className="absolute left-3 top-[45%] transform -translate-y-1/2 text-gray-500"
+                    className="absolute left-3 top-[45%] transform -translate-y-1/2 "
                     src={textIcon}
                     alt="icon"
                   />
@@ -260,7 +260,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                     {...register("lastName", {
                       required: "Last Name is required",
                     })}
-                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border ${
+                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border text-gray-500 ${
                       errors.lastName ? "border-red-500" : "border-gray-300"
                     } focus:outline-none`}
                   />
@@ -274,7 +274,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
               <div className="flex flex-col  justify-between gap-6 mb-0 sm:mb-5">
                 <div className="flex flex-col w-full relative h-[55px]">
                   <Image
-                    className="absolute left-3 top-[46%] transform -translate-y-1/2 text-gray-500"
+                    className="absolute left-3 top-[46%] transform -translate-y-1/2"
                     src={MailIcon2}
                     alt="icon"
                   />
@@ -288,7 +288,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                         message: "Enter a valid email",
                       },
                     })}
-                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border ${
+                    className={`w-full font-sans pl-12 pr-4 py-3 bg-white rounded-lg border text-gray-500 ${
                       errors.email ? "border-red-500" : "border-gray-300"
                     } focus:outline-none`}
                   />
@@ -308,7 +308,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                       setValue("phone", value);
                       trigger("phone");
                     }}
-                    containerClass="py-2 font-sans bg-white rounded-lg pr-2"
+                    containerClass="py-2 font-sans bg-white rounded-lg pr-2 text-gray-500"
                     inputStyle={{ width: "100%" }}
                   />
                   {errors.phone && (
@@ -320,7 +320,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                 rows={6}
                 placeholder="What would you like to discuss on the call?"
                 {...register("message", { required: "Message is required" })}
-                className={`mb-0 font-sans sm:mb-5 w-full px-4 py-3 bg-white rounded-lg border ${
+                className={`mb-0 font-sans sm:mb-5 w-full px-4 py-3 bg-white rounded-lg border text-gray-500 ${
                   errors.message ? "border-red-500" : "border-gray-300"
                 } focus:outline-none`}
               />

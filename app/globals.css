@@ -18,7 +18,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
 }
@@ -56,19 +56,23 @@ p:empty {
 .services-details-content ul, .privacy-content ul, .terms-content ul {
     list-style: disc;
     padding-left: 20px;
+    color: #171717;
 }
 .deals-content ol{
   padding-left: 20px;
   list-style: auto;
+   color: #171717;
 }
 .services-details-content ul li, .deals-content ol li {
     line-height: 28px;
     margin-bottom: 10px;
     margin-left: 20px;
     text-align: left;
+    color: #171717;
 }
-.services-details-content p, .privacy-content p, .terms-content p{
+.services-details-content p, .privacy-content p, .terms-content p, .deals-content p{
   line-height: 28px;
+  color: #171717;
 }
 .privacy-content h1, .terms-content h1, .deals-content h1 {
     font-size: 48px;

@@ -9,7 +9,7 @@ const Cards = async () => {
   const serviceData = await fetchServices();
 
   return (
-    <div className="flex flex-col gap-12 items-center justify-center relative px-6 sm:px-8 md:px-12 lg:px-[90px] mb-10">
+    <div className="flex flex-col gap-12 items-center justify-center relative px-6 sm:px-8 md:px-12 lg:px-[90px] mb-10 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {serviceData.map((card: any) => {
           let parsedSections = [];

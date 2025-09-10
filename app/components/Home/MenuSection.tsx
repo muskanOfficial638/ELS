@@ -43,11 +43,11 @@ const MenuSection: React.FC = () => {
   //   }, [data]);
 
   return (
-    <section className="px-4">
+    <section className="px-4 bg-white">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-[100px] relative px-4 lg:px-[90px]">
         <div className="flex flex-col items-start w-full lg:w-[45%] gap-6 order-2 md:order-1 lg:order-1">
           {/* <div dangerouslySetInnerHTML={{ __html: textHtml }} /> */}
-          <h2 className="font-body font-bold text[#0D2D63] text-2xl lg:text-[32px] tracking-wide lg:tracking-[1.20px] leading-tight lg:leading-[48px]">
+          <h2 className="font-body font-bold text-[#0D2D63] text-2xl lg:text-[32px] tracking-wide lg:tracking-[1.20px] leading-tight lg:leading-[48px]">
             What’s the best on the menu?
           </h2>
           <p className="font-sans leading-[28px] text-black">
