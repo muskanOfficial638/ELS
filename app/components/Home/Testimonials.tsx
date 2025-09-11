@@ -34,7 +34,7 @@ export default function Testimonials({ testimonials }: any) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -59,7 +59,7 @@ export default function Testimonials({ testimonials }: any) {
                 : "opacity-0 absolute inset-0 pointer-events-none"
             }`}
           >
-            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md relative overflow-hidden h-[700px] md:h-[500px]">
+            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md relative md:overflow-hidden overflow-auto h-[700px] md:h-[500px]">
               <div className="flex justify-center mb-4">
                 <Image
                   src={`${apiPath}/storage/${testimonialData?.client_image}`}

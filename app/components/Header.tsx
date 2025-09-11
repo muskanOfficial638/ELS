@@ -56,8 +56,8 @@ const Header = ({ headerData, headerContent }: any) => {
               href={`mailto:${headerContent?.header_email || "#"}`}
               className="flex hover:text-[#45B29A] duration-400 items-center gap-2"
             >
-              <HiOutlineMail className="text-lg" />
-              <span className="font-sans">
+              <HiOutlineMail className="md:text-lg text-sm" />
+              <span className="font-sans md:text-md text-sm">
                 {headerContent?.header_email || ""}
                 {/* contact@empowering.legal */}
               </span>
@@ -69,8 +69,8 @@ const Header = ({ headerData, headerContent }: any) => {
               href={`tel:${headerContent?.header_phone || "#"}`}
               className="flex hover:text-[#45B29A] gap-2 items-center mt-1"
             >
-              <HiPhone className="text-md h-[21px]" />
-              <span className="font-sans text-sm">
+              <HiPhone className="md:text-sm text-[14px] h-[21px]" />
+              <span className="font-sans md:text-sm text-[13px]">
                 {headerContent?.header_phone || ""}
               </span>
             </Link>

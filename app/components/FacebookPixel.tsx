@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 // components/FacebookPixel.tsx
 import Script from 'next/script';
-import Image from 'next/image';
 
 const PIXEL_ID = '1273781827323182';
 
@@ -29,7 +29,7 @@ const FacebookPixel = () => {
 
       {/* NoScript fallback for users with JS disabled */}
       <noscript>
-        <Image
+        <img
           height="1"
           width="1"
           style={{ display: 'none' }}

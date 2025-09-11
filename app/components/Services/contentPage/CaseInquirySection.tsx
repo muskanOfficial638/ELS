@@ -27,7 +27,7 @@ export default function CaseInquirySection({ allServiceData }: any) {
 
           {/* Text Content */}
           <div>
-            <h2 className="md:text-[30px] text-[25px] md:leading-[43px] leading-[40px] font-bold text-[#0D2D63] mb-4 font-body">
+            <h2 className="md:text-[30px] text-[25px] md:leading-[43px] leading-[40px] font-bold text-[#0D2D63] my-4 font-body">
               {/* Do You Think You Have A Case? */}
               {section?.section_heading || ""}
             </h2>
