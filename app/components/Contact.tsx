@@ -169,7 +169,7 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                       className="h-6 w-6"
                     />
                     <Link
-                      href={details?.url || '#'}
+                      href={details?.url || "#"}
                       className=" font-sans text-white leading[28px]"
                     >
                       {details?.text}
@@ -343,18 +343,20 @@ const ContactUsComponent: React.FC<ContactUsComponentProps> = ({
                       htmlFor="agree"
                       className="font-sans  text-white text-sm lg:text-base font-normal ml-4 mt-[1px]"
                     >
-                      <div
+                      {/* <div
                         dangerouslySetInnerHTML={{
                           __html: contactInfo?.description,
                         }}
-                      />
-                      {/* I agree with all the{" "}
-                      <span
+                      /> */}
+                      I agree with all the{" "}
+                      <Link
                         className="underline cursor-pointer"
-                        onClick={handleNavigateTOS}
+                        href={"/terms-and-conditions"}
+                        target="_blank"
+                        // onClick={handleNavigateTOS}
                       >
                         terms and conditions
-                      </span> */}
+                      </Link>
                     </label>
                   </div>
                   {errors.terms && (
