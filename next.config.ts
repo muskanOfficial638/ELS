@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "phpstack-1499764-5738009.cloudwaysapps.com",
+        hostname: "admin.empowering.legal",
         pathname: "/storage/**",
       },
     ],
