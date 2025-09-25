@@ -88,7 +88,7 @@ export default function BlogPageClient({ slug }: { slug: string }) {
         <img
           src={`${apiPath}/storage/${blogData?.feature_image}`}
           alt={blogData?.title}
-          className="w-full h-[300px] object-cover rounded-lg"
+          className="w-full h-auto object-cover rounded-lg"
         />
       </div>
 
