@@ -6,7 +6,11 @@ import { apiPath } from "@/app/utils/api-path";
 import Link from "next/link";
 import Image from "next/image";
 
-export default async function NotarizationSection({ section }: any) {
+export default async function NotarizationSection({
+  section,
+  slug,
+  title,
+}: any) {
   const scheduleData = await fetchScheduleConsultation();
   const parsedItems = JSON.parse(scheduleData[0]?.items);
 
@@ -16,6 +20,12 @@ export default async function NotarizationSection({ section }: any) {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 items-center text-center md:items-start md:text-start">
           {/* Left Content */}
           <div className="lg:col-span-2 space-y-4 order-2 md:order-1 lg:order-1">
+            <Link
+              href={slug}
+              className="font-body mb-4 text-sm tracking-[0.8px] sm:tracking-[0.7px] hover:underline"
+            >
+              Service / {title}
+            </Link>
             {section?.section_heading && (
               <h2 className="md:text-[30px] text-[25px] md:leading-[43px] leading-[40px] font-bold text-[#0D2D63] font-body">
                 {/* Reliable and Professional <br />

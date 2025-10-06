@@ -1,17 +1,17 @@
 import { apiPath } from "@/app/utils/api-path";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 interface HeroProps {
   feature_image: string;
   title: string;
-  slug: string;
+  // slug: string;
 }
 
 const ServiceHeroSection: React.FC<HeroProps> = ({
   feature_image,
   title,
-  slug
+  // slug
 }: HeroProps) => {
   return (
     <section className="relative w-full flex items-start md:items-center justify-center">
@@ -42,9 +42,9 @@ const ServiceHeroSection: React.FC<HeroProps> = ({
           Bussiness <br/> Formation & <br/>Set-Up
         </h1> */}
 
-        <Link href={slug} className="font-sans mt-2 text-sm tracking-[0.8px] sm:tracking-[0.7px]">
+        {/* <Link href={slug} className="font-sans mt-2 text-sm tracking-[0.8px] sm:tracking-[0.7px]">
           Service / {title}
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

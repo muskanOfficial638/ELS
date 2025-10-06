@@ -70,12 +70,13 @@ const HeroSection: React.FC<Props> = ({ sliderData }) => {
           Strategic Counsel 
             </h1> */}
             <h1
-              className="font-body md:text-[60px] text-[40px] font-bold tracking-[0.8px] sm:tracking-[0.8px] whitespace-nowrap hidden md:block lg:block"
-              dangerouslySetInnerHTML={{
-                __html: insertLineBreaks(heroData?.title, 5),
-              }}
-            />
-
+              className="font-body md:text-[60px] text-[40px] font-bold tracking-[0.8px] sm:tracking-[0.8px] hidden md:block lg:block"
+              // dangerouslySetInnerHTML={{
+              //   __html: insertLineBreaks(heroData?.title, 5),
+              // }}
+            >
+              {heroData?.title}
+            </h1>
             {/* mobile heading */}
             {/* <h1 className="font-body text-[30px] font-bold tracking-[0.8px] whitespace-nowrap md:hidden lg:hidden">
             Empowering You <br />

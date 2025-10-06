@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { apiPath } from "@/app/utils/api-path";
+import Link from "next/link";
 // import { Client1, Client2, Client3 } from "../../assets";
 
 // const testimonials = [
@@ -59,37 +60,39 @@ export default function Testimonials({ testimonials }: any) {
                 : "opacity-0 absolute inset-0 pointer-events-none"
             }`}
           >
-            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md relative md:overflow-hidden overflow-auto h-[700px] md:h-[500px]">
-              <div className="flex justify-center mb-4">
-                <Image
-                  src={`${apiPath}/storage/${testimonialData?.client_image}`}
-                  alt={testimonialData?.client_name}
-                  width={90}
-                  height={90}
-                  className={`rounded-full object-cover border-4 ${
-                    index === 0 ? "border-yellow-400" : "border-gray-200"
-                  }`}
-                />
-              </div>
-              <h3 className="text-[#052b64] text-[22px] font-body">
-                {testimonialData?.client_name}
-              </h3>
-              <p className="font-sans text-[19px] font-[600] leading-[28px] text-black mb-4">
-                {testimonialData?.client_designation}
-              </p>
-
-              <blockquote className="relative text-gray-700 text-base leading-relaxed pt-8 pb-6 px-6">
-                <span className="absolute text-6xl left-4 top-0 text-[#052b64] leading-none font-body">
-                  “
-                </span>
-                <p className="font-sans leading-[28px] text-black">
-                  {testimonialData?.content}{" "}
+            <Link href={testimonialData?.linkdin} target="_blank">
+              <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md relative md:overflow-hidden overflow-auto h-[700px] md:h-[500px]">
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src={`${apiPath}/storage/${testimonialData?.client_image}`}
+                    alt={testimonialData?.client_name}
+                    width={90}
+                    height={90}
+                    className={`rounded-full object-cover border-4 ${
+                      index === 0 ? "border-yellow-400" : "border-gray-200"
+                    }`}
+                  />
+                </div>
+                <h3 className="text-[#052b64] text-[22px] font-body">
+                  {testimonialData?.client_name}
+                </h3>
+                <p className="font-sans text-[19px] font-[600] leading-[28px] text-black mb-4">
+                  {testimonialData?.client_designation}
                 </p>
-                <span className="text-6xl absolute md:right-25 right-0 md:-bottom-6 text-[#052b64] font-body">
-                  ”
-                </span>
-              </blockquote>
-            </div>
+
+                <blockquote className="relative text-gray-700 text-base leading-relaxed pt-8 pb-6 px-6">
+                  <span className="absolute text-6xl left-4 top-0 text-[#052b64] leading-none font-body">
+                    “
+                  </span>
+                  <p className="font-sans leading-[28px] text-black">
+                    {testimonialData?.content}{" "}
+                  </p>
+                  <span className="text-6xl absolute md:right-25 right-0 md:-bottom-6 text-[#052b64] font-body">
+                    ”
+                  </span>
+                </blockquote>
+              </div>
+            </Link>
           </div>
         ))}
       </div>

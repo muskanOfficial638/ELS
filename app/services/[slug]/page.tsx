@@ -79,9 +79,9 @@ export default async function ServicePage(context: {
       <ServiceHeroSection
         feature_image={serviceData[0]?.feature_image}
         title={serviceData[0]?.title}
-        slug={slug}
+        // slug={slug}
       />
-      <NotarizationSection section={processedSections[0]} />
+      <NotarizationSection section={processedSections[0]}  slug={slug} title={serviceData[0]?.title}/>
       <CaseInquirySection allServiceData={processedSections}/>
       {/* <LegalStructure section={processedSections[2]} />
       <FractionalGeneral section={processedSections[3]} />
