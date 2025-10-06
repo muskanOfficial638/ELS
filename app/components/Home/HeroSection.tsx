@@ -12,18 +12,18 @@ interface Props {
 
 const HeroSection: React.FC<Props> = ({ sliderData }) => {
   //For desktop title
-  const insertLineBreaks = (text: string, wordsPerLine = 5) => {
-    if (!text) return [];
-    const words = text?.split(" ");
-    return words
-      .reduce((acc: any, word: string, index: number) => {
-        const isBreak = (index + 1) % wordsPerLine === 0;
-        acc.push(word);
-        if (isBreak) acc.push("<br />");
-        return acc;
-      }, [])
-      .join(" ");
-  };
+  // const insertLineBreaks = (text: string, wordsPerLine = 5) => {
+  //   if (!text) return [];
+  //   const words = text?.split(" ");
+  //   return words
+  //     .reduce((acc: any, word: string, index: number) => {
+  //       const isBreak = (index + 1) % wordsPerLine === 0;
+  //       acc.push(word);
+  //       if (isBreak) acc.push("<br />");
+  //       return acc;
+  //     }, [])
+  //     .join(" ");
+  // };
 
   // For mobile title
   const splitTitleIntoLines = (title: string) => {
