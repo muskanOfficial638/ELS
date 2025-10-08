@@ -58,7 +58,7 @@ const HeroSection: React.FC<Props> = ({ sliderData }) => {
           {/* Overlay */}
           <div className="absolute inset-0 md:h-[647px] h-[501px] bg-gradient-to-b bg-[#0D2D638C] bg-opacity-40 z-0" />
           <div
-            className="absolute z-10 text-white text-center px-4 md:mt-0 lg:mt-0 top-[50%] left-[50%]"
+            className="absolute z-10 text-white text-center px-4 md:mt-0 lg:mt-0 top-[50%] left-[50%] w-full"
             style={{
               transform: "translate(-50%, -50%)",
             }}

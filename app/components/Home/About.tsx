@@ -84,7 +84,7 @@ const About: React.FC<legalSectionProps> = ({ homeAboutData }) => {
             </div>
             <div className="flex flex-col mt-10 md:mt-0 lg:mt-0 order-1 md:order-2 lg:order-2">
               <Image
-                className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-cover"
+                className="md:w-[445.78570556640625px] sm:w-[305px] md:h-[324px] h-[222px] md:mt-6 mt-0 object-contain"
                 alt="Frame"
                 // src="/ELS Logo Color.png"
                 src={
